@@ -15,7 +15,14 @@
       .state('app.dashboard', {
         url: '/dashboard',
         controller: 'DashboardCtrl',
-        templateUrl: 'views/app.dashboard.html'
+        templateUrl: 'views/app.dashboard.html',
+        resolve: {
+          delay: function($q, $timeout) {
+            var delay = $q.defer();
+            $timeout(delay.resolve, 1500);
+            return delay.promise;
+          }
+        }
       });
     }]);
 })();
