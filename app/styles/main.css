@@ -1820,14 +1820,17 @@ html.boxed-layout {
 .appWrapper.aside-static #content {
   padding-left: 250px; }
 
+.appWrapper.header-fixed.aside-fixed:not(.sidebar-sm):not(.sidebar-xs) #content {
+  left: 0px; }
+
 @media only screen and (max-width: 992px) {
   .appWrapper.header-fixed.aside-fixed:not(.sidebar-sm):not(.sidebar-xs) #content {
-    left: 80px; } }
+    left: 0px; } }
 @media only screen and (max-width: 768px) {
   .appWrapper.header-fixed.aside-fixed #content {
     top: 90px; }
   .appWrapper.header-fixed.aside-fixed:not(.sidebar-sm):not(.sidebar-xs) #content {
-    left: 40px; }
+    left: 0px; }
   .appWrapper.aside-static #content {
     padding-top: 90px; }
   .appWrapper.header-static.aside-static #content {
@@ -9204,10 +9207,11 @@ input[type="text"].ui-grid-filter-input {
     cursor: pointer;
     z-index: 9; }
     .card-container .card .front {
+      min-height: 210px;
       height: 100%;
       position: relative;
       width: 100%;
-      padding: 28px;
+      padding:5px 28px 50px 28px;
       top: 0;
       left: 0;
       z-index: 11;
@@ -9228,6 +9232,7 @@ input[type="text"].ui-grid-filter-input {
       -moz-transition: all 0.4s ease-in-out;
       transition: all 0.4s ease-in-out; }
     .card-container .card:hover .front {
+      min-height: 110px;
       z-index: 11;
       -webkit-transform: rotateY(180deg);
       -moz-transform: rotateY(180deg);

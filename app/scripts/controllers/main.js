@@ -7,8 +7,7 @@
  * # MainCtrl
  * Controller of the minovateApp
  */
-app
-  .controller('MainCtrl', function ($scope, $http, $translate) {
+  angular.module('app').controller('MainCtrl', function ($scope, $http, $translate) {
 
     $scope.main = {
       title: 'Minovate',
