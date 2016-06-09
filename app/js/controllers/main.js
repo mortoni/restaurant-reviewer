@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the minovateApp
  */
-  angular.module('app').controller('MainCtrl', function ($scope, $http, $translate) {
+  angular.module('app').controller('MainCtrl', function ($scope, $http) {
 
     $scope.main = {
       title: 'Minovate',
@@ -31,10 +31,4 @@
         angular.element('.tile.refreshing').removeClass('refreshing');
       });
     };
-
-    $scope.changeLanguage = function (langKey) {
-      $translate.use(langKey);
-      $scope.currentLanguage = langKey;
-    };
-    $scope.currentLanguage = $translate.proposedLanguage() || $translate.use();
   });

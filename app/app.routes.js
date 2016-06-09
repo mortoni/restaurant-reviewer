@@ -19,7 +19,7 @@
         resolve: {
           delay: function($q, $timeout) {
             var delay = $q.defer();
-            $timeout(delay.resolve, 5000);
+            $timeout(delay.resolve, 600);
             return delay.promise;
           }
         }

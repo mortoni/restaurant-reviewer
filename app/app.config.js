@@ -20,4 +20,5 @@
       $rootScope.containerClass = toState.containerClass;
     });
   }]);
+  
 })();
