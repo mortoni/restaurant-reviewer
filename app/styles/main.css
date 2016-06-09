@@ -2547,7 +2547,8 @@ html.boxed-layout {
   .appWrapper.sidebar-xs.aside-static #sidebar {
     padding-top: 90px; } }
 .pageheader {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  margin-top: 50px;}
   .pageheader h2 {
     display: inline-block;
     color: #4a555b;
@@ -4192,8 +4193,8 @@ check-toggler,
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3); }
 .dropdown.settings .form-group {
   margin-bottom: 0; }
-.dropdown.nav-profile .dropdown-menu {
-  min-width: 180px; }
+/*.dropdown.nav-profile .dropdown-menu {
+  min-width: 180px; }*/
 
 #header .dropdown > .dropdown-menu {
   margin-top: -2px; }
