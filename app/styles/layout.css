@@ -1,1 +1,21 @@
 .app-footer{bottom:0;margin-left:220px;font-size:12px;padding:16px;background-color:#e5e5e5;border-top:1px solid #ddd}
+
+
+#sub-header p {
+  color: #7a7c7f;
+  font-size: 24px;
+  font-family: "Libre Baskerville", serif;
+  line-height: 35px;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+}
+
+.byline {
+  font-style: italic;
+  color: #B6B6B6;
+  font-size: 19px;
+  margin-top: 5px;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+  padding-bottom: 10px;
+}

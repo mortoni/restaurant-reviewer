@@ -12,9 +12,9 @@
     $scope.main = {
       title: 'Minovate',
       settings: {
-        navbarHeaderColor: 'scheme-default',
-        sidebarColor: 'scheme-default',
-        brandingColor: 'scheme-default',
+        navbarHeaderColor: 'scheme-cyan',
+        sidebarColor: 'scheme-cyan',
+        brandingColor: 'scheme-cyan',
         activeColor: 'default-scheme-color',
         headerFixed: true,
         asideFixed: true,
