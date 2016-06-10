@@ -2,7 +2,7 @@
     'use strict';
     angular.module('app').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
-      $urlRouterProvider.otherwise('/app/dashboard');
+      $urlRouterProvider.otherwise('/login');
 
       $stateProvider
 
@@ -16,13 +16,25 @@
         url: '/dashboard',
         controller: 'DashboardCtrl',
         templateUrl: 'views/app.dashboard.html',
+      })
+      //login
+      .state('login', {
+        url: '/login',
+        controller: 'LoginCtrl',
+        templateUrl: 'views/login.html',
         resolve: {
           delay: function($q, $timeout) {
             var delay = $q.defer();
-            $timeout(delay.resolve, 600);
+            $timeout(delay.resolve, 3000);
             return delay.promise;
           }
         }
+      })
+      //signup
+      .state('signup', {
+        url: '/signup',
+        controller: 'LoginCtrl',
+        templateUrl: 'views/signup.html'
       });
     }]);
 })();

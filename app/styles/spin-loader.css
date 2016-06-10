@@ -24,7 +24,7 @@ body {
     left:0;
     width: 100%;
     height: 100%;
-    background: #191F26;
+    background: #3f4e62;
 }
 
 /*=============================*/
@@ -50,7 +50,7 @@ body {
   margin: 0 auto -5px;
   z-index: 7;
   position: relative;
-  background-color: #191F26;
+  background-color: #3f4e62;
   border-right: 4px solid #fff;
   border-left: 4px solid #fff;
 }

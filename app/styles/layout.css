@@ -39,7 +39,7 @@
 }
 
 .load-font{
-  font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+  font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif !important;
 	font-weight: normal;
         font-size: 1.75em;
 	letter-spacing: .2em;
@@ -52,4 +52,7 @@
 
 .drop-user-menu {
     padding-right: 10px;
+}
+.title-fix {
+  padding-top: 65px;
 }
