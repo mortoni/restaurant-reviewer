@@ -19,6 +19,7 @@
 
       $rootScope.$on('$stateChangeSuccess', function() {
         element.addClass('ng-hide');
+        // $timeout(element.addClass('ng-hide'), 2000);
       });
     }
   };

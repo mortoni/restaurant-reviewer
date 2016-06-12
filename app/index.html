@@ -14,12 +14,33 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/spin-loader.css">
+    <base href="/">
   </head>
   <body id="minovate" class="{{main.settings.navbarHeaderColor}} {{main.settings.activeColor}} {{containerClass}} header-fixed aside-fixed rightbar-hidden appWrapper" ng-class="{'header-fixed': main.settings.headerFixed, 'header-static': !main.settings.headerFixed, 'aside-fixed': main.settings.asideFixed, 'aside-static': !main.settings.asideFixed, 'rightbar-show': main.settings.rightbarShow, 'rightbar-hidden': !main.settings.rightbarShow}">
+    <!-- facebook -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '539055996292482',
+          xfbml      : true,
+          version    : 'v2.6'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <!-- Application content -->
     <resolve-loader></resolve-loader>
     <div id="wrap" ui-view autoscroll="false"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -36,5 +57,7 @@
     <script src="js/controllers/login.controller.js"></script>
     <!-- <script src="js/controllers/nav.controller.js"></script> -->
     <script src="js/directives/loader.js"></script>
+
+    <script src="js/service/auth.factory.js"></script>
 </body>
 </html>

@@ -14,8 +14,8 @@
     <li class="dropdown nav-profile" dropdown>
 
       <a href class="dropdown-toggle" dropdown-toggle>
-        <img src="" alt="" class="img-circle size-30x30">
-        <span>John Douey <fa name="angle-down"></fa></span>
+        <img ng-src="{{user.photoURL}}" alt="" class="img-circle size-30x30">
+        <span>{{user.displayName}} <fa name="angle-down"></fa></span>
       </a>
 
       <ul class="dropdown-menu animated drop-user-menu" role="menu">

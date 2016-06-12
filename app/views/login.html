@@ -23,9 +23,6 @@
 
       <div class="form-group text-left mt-20">
         <button type="submit" class="btn btn-greensea b-0 br-2 mr-5" ng-click="login()" ng-disabled='form.$invalid'>Login</button>
-        <label class="checkbox checkbox-custom checkbox-custom-sm inline-block">
-          <input type="checkbox"><i></i> Remember me
-        </label>
         <a ui-sref="core.forgotpass" class="pull-right mt-10">Forgot Password?</a>
       </div>
 
@@ -33,11 +30,11 @@
 
     <hr class="b-3x"/>
 
-    <div class="social-login text-left">
+    <!-- <div class="social-login text-left">
 
       <ul class="pull-right list-unstyled list-inline">
         <li class="p-0">
-          <a class="btn btn-sm btn-primary b-0 btn-rounded-20" href="javascript:;"><i class="fa fa-facebook"></i></a>
+          <a class="btn btn-sm btn-primary b-0 btn-rounded-20" href="javascript:;" ng-click="vm.doFacebookLogin()"><i class="fa fa-facebook"></i></a>
         </li>
         <li class="p-0">
           <a class="btn btn-sm btn-info b-0 btn-rounded-20" href="javascript:;"><i class="fa fa-twitter"></i></a>
@@ -49,7 +46,7 @@
 
       <h5>Or login with</h5>
 
-    </div>
+    </div> -->
 
     <div class="bg-slategray lt wrap-reset mt-40">
       <p class="m-0">
