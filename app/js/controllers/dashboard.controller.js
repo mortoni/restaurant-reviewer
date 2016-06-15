@@ -8,6 +8,8 @@
  * Controller of the minovateApp
  */
   angular.module('app').controller('DashboardCtrl', function($scope,$http){
+    $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
+    
     $scope.page = {
       title: 'Dashboard',
       subtitle: 'Place subtitle here...'

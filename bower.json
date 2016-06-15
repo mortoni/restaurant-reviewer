@@ -9,10 +9,12 @@
     "angular-ui-router": "~0.2.15",
     "animate.css": "~3.4.0",
     "font-awesome": "~4.4.0",
-    "angular-bootstrap": "~0.13.4"
+    "angular-bootstrap": "~0.13.4",
+    "angular-ui-select": "^0.18.0",
+    "selectize": "~0.8.5"
   },
   "overrides": {
-  "appPath": "app",
+    "appPath": "app",
     "resolutions": {
       "angular": "1.4.6",
       "bootstrap": "~3.3.5",

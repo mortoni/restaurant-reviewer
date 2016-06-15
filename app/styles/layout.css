@@ -56,3 +56,15 @@
 .title-fix {
   padding-top: 65px;
 }
+
+.header-collor{
+  background-color: #616f77;
+}
+
+.food-collor{
+  color: #e05d6f;
+}
+
+.hr-personal{
+  border-top: 1px solid #616f77 !important;
+}

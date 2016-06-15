@@ -58,7 +58,7 @@ body {
   width: 10px;
   height: 10px;
   position: absolute;
-  background-color: #22beef;
+  background-color: #e05d6f;
   opacity: 0.4;
   left: 92px;
   z-index: 8;
@@ -107,7 +107,7 @@ body {
 }
 .jar .liquid {
   height: 40px;
-  background-color: #0f9dca;
+  background-color: #e05d6f;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -117,7 +117,7 @@ body {
   width: 60px;
   height: 20px;
   position: absolute;
-  background-color: #0f9dca;
+  background-color: #e05d6f;
   left: 0;
   top: 50px;
   -moz-animation: wave 1s linear 1s infinite alternate;
