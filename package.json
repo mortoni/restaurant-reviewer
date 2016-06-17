@@ -1,7 +1,8 @@
 {
   "name": "restaurant-reviewer",
   "version": "1.0.0",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "browser-sync": "^2.9.8",
     "gulp": "^3.9.0",

@@ -41,7 +41,7 @@
       <div class="card">
         <div class="front bg-red lter">
           <!-- <div class="row"> -->
-            <img class="img-responsive img-max text-center" ng-src="../images/{{restaurant.image}}" alt="" />
+            <img class="img-responsive text-center" ng-src="../images/{{restaurant.image}}" alt="" />
             <div class="card-footer">
               <ul>
                 <li class="lead">{{ restaurant.name }}</li>
@@ -58,7 +58,7 @@
             <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
             <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
           </div>
-          <img class="img-responsive img-max text-center" ng-src="../images/{{restaurant.background}}" alt="" />
+          <img class="img-responsive text-center" ng-src="../images/{{restaurant.background}}" alt="" />
           <hr class="personalized">
           <div class="row">
             <div class="col-xs-4">

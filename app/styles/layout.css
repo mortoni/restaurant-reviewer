@@ -112,22 +112,3 @@
   border: 0;
   border-top: 2px solid #ffc100;
 }
-
-/*IPHONE 5*/
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
-  .img-max {
-    max-width: 250px;
-    max-height: 250px;
-  }
-}
-/*IPHONE 6*/
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
-  .img-max {
-    max-width: 300px;
-    max-height: 300px;
-  }
-}

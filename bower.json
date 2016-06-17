@@ -11,7 +11,8 @@
     "font-awesome": "~4.4.0",
     "angular-bootstrap": "~0.13.4",
     "angular-ui-select": "^0.18.0",
-    "selectize": "~0.8.5"
+    "selectize": "~0.8.5",
+    "normalize-css": "^4.1.1"
   },
   "overrides": {
     "appPath": "app",
