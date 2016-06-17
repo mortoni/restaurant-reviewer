@@ -22,11 +22,17 @@
         url: '/dashboard',
         controller: 'DashboardCtrl',
         templateUrl: 'views/app.dashboard.html',
+        controllerAs: 'vm',
         resolve: {
           delay: function($q, $timeout) {
             var delay = $q.defer();
             $timeout(delay.resolve, 5000);
             return delay.promise;
+          },
+          restaurants: function(){
+            firebase.database().ref('restaurants').on('value', function(snapshot) {
+              return snapshot.val();
+            });
           }
         }
       });
