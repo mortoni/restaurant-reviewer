@@ -2,16 +2,29 @@
 
   <div class="hidden-md hidden-lg">
     <div id="sub-header">
-      <p>You won't upload a review without downloading <strong class="food-collor">food</strong>. Get to know where's your next stop.</p>
-    </div>
-    <div class="byline">
-        - Smart People
+      <p>I won't be Impressed with tecnology until I can donwload <strong class="food-collor">FOOD.</strong></p>
     </div>
   </div>
 
-  <br>
-  <br>
-  <br>
+  <div class="pageheader hidden-xs hidden-sm">
+
+    <div class="page-bar">
+
+      <ul class="page-breadcrumb">
+        <li>
+        </li>
+        <li>
+          <div id="sub-header">
+            <p>You won't upload a review without downloading <strong class="food-collor">food</strong>. Get to know where's your next stop.</p>
+          </div>
+          <div class="byline">
+              - Smart People
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
 
   <div class="row">
     <div class="form-group col-xs-offset-2 col-xs-8">
@@ -22,31 +35,31 @@
     </div>
   </div>
 
-  <div class="pageheader hidden-xs hidden-sm">
-
-    <div class="page-bar">
-
-      <ul class="page-breadcrumb">
-        <li>
-          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> Food Review</a>
-        </li>
-        <li>
-          <a ui-sref="app.dashboard">{{page.title}}</a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
 
   <div class="row">
     <div class="card-container col-lg-3 col-sm-6 col-sm-12" ng-repeat="restaurant in vm.restaurants">
       <div class="card">
         <div class="front bg-red lter">
           <!-- <div class="row"> -->
-            <img class="img-responsive" ng-src="../images/{{restaurant.image}}" alt="" />
+            <img class="img-responsive img-max text-center" ng-src="../images/{{restaurant.image}}" alt="" />
+            <div class="card-footer">
+              <ul>
+                <li class="lead">{{ restaurant.name }}</li>
+                <li class="strap">here shows the last review</li>
+              </ul>
+            </div>
           <!-- </div> -->
         </div>
-        <div class="back bg-red lter col-xs-12 col-md-6 col-lg-6">
+        <div class="back bg-red lter">
+          <div class="rating-stars text-center">
+            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+          </div>
+          <img class="img-responsive img-max text-center" ng-src="../images/{{restaurant.background}}" alt="" />
+          <hr class="personalized">
           <div class="row">
             <div class="col-xs-4">
               <a href=javascript:;><i class="fa fa-asterisk fa-2x" aria-hidden="true"></i> Details</a>
@@ -58,6 +71,7 @@
               <a href=javascript:;><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Write review</a>
             </div>
           </div>
+
         </div>
       </div>
     </div>

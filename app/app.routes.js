@@ -24,15 +24,19 @@
         templateUrl: 'views/app.dashboard.html',
         controllerAs: 'vm',
         resolve: {
-          delay: function($q, $timeout) {
+          // delay: function($q, $timeout) {
+          //   var delay = $q.defer();
+          //   $timeout(delay.resolve, 5000);
+          //   return delay.promise;
+          // }
+          restaurants: function($rootScope, $q){
             var delay = $q.defer();
-            $timeout(delay.resolve, 5000);
-            return delay.promise;
-          },
-          restaurants: function(){
+
             firebase.database().ref('restaurants').on('value', function(snapshot) {
-              return snapshot.val();
+              $rootScope.restaurants = snapshot.val();
+              delay.resolve();
             });
+            return delay.promise;
           }
         }
       });

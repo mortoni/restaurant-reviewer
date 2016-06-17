@@ -3,21 +3,31 @@
 
   angular.module('app').controller('DashboardCtrl', DashboardCtrl);
 
-    DashboardCtrl.$inject = ['$scope', 'restaurants'];
+    DashboardCtrl.$inject = ['$scope', '$rootScope'];
 
-    function DashboardCtrl($scope, restaurants){
+    function DashboardCtrl($scope, $rootScope){
       var vm = this;
-      vm.restaurants = [];
-      var teste = restaurants;
-      vm.teste = teste;
+      vm.restaurants = $rootScope.restaurants;
+      vm.details = details;
+      vm.reviews = reviews;
+      vm.writeReview = writeReview;
 
-      // vm.restaurants = restaurants;
       activate();
-      
+
       function activate(){
-        firebase.database().ref('restaurants').on('value', function(snapshot) {
-          vm.restaurants = snapshot.val();
-        });
+
+      }
+
+      function details(){
+
+      }
+
+      function reviews() {
+
+      }
+
+      function writeReview() {
+
       }
 
     }
