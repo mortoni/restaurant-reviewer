@@ -108,7 +108,13 @@
 
 .personalized, hr{
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   border: 0;
   border-top: 2px solid #ffc100;
 }
+.img-responsive, .center{
+  margin: 0 auto;
+}
+
+.no-collor{
+  background-color: rgba(0, 0, 0, 0.00) !important; }
