@@ -118,3 +118,7 @@
 
 .no-collor{
   background-color: rgba(0, 0, 0, 0.00) !important; }
+
+.card-back-div{
+  padding: 5px;
+}

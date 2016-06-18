@@ -17,9 +17,6 @@
           <div id="sub-header">
             <p>You won't upload a review without downloading <strong class="food-collor">food</strong>. Get to know where's your next stop.</p>
           </div>
-          <div class="byline">
-              - Smart People
-          </div>
         </li>
       </ul>
     </div>
@@ -27,14 +24,13 @@
   </div>
 
   <div class="row">
-    <div class="form-group col-xs-offset-2 col-xs-8">
-      <input type="text"
-             class="text-center form-control underline-input input-lg"
-             placeholder="What you looking for?"
-             ng-model="search">
+    <div layout layout-sm="column" class="col-xs-offset-1 col-xs-10 text-center">
+      <md-input-container flex>
+        <label>What you looking for?</label>
+        <input ng-model="vm.search">
+      </md-input-container>
     </div>
   </div>
-
 
   <div class="row">
     <div class="card-container col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="restaurant in vm.restaurants">
@@ -51,24 +47,54 @@
           <!-- </div> -->
         </div>
         <div class="back bg-red lter">
-          <div class="rating-stars text-center">
-            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
-            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
-            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
-            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
-            <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+          <!-- BACKGROUND -->
+          <div ng-show="vm.isBackground">
+            <div class="rating-stars text-center">
+              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
+            </div>
+            <img class="img-responsive text-center" ng-src="../images/{{restaurant.background}}" alt="" />
           </div>
-          <img class="img-responsive text-center" ng-src="../images/{{restaurant.background}}" alt="" />
+
+          <!-- DETAILS -->
+          <div ng-show="vm.isDetails">
+            details
+          </div>
+
+          <!-- REVIEWS -->
+          <div ng-show="vm.isReview">
+            reviews
+          </div>
+
+          <!-- WRITEREVIEW -->
+          <div ng-show="vm.isWriteReview" class="card-back-div">
+            <div class="form-group">
+              <textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something about..." ng-model="user.message"></textarea>
+            </div>
+
+
+          </div>
+
+
           <hr class="personalized">
           <div class="row">
             <div class="col-xs-4">
-              <a href=javascript:; class="no-collor"><i class="fa fa-asterisk fa-2x" aria-hidden="true"></i> Details</a>
+              <a href=javascript:; class="no-collor" ng-click="vm.details()">
+                <i class="fa fa-asterisk fa-2x" aria-hidden="true"></i> Details
+              </a>
             </div>
             <div class="col-xs-4">
-              <a href=javascript:; class="no-collor"><i class="fa fa-bars fa-2x" aria-hidden="true"></i> Reviews</a>
+              <a href=javascript:; class="no-collor" ng-click="vm.reviews()">
+                <i class="fa fa-bars fa-2x" aria-hidden="true"></i> Reviews
+              </a>
             </div>
             <div class="col-xs-4">
-              <a href=javascript:; class="no-collor"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Write review</a>
+              <a href=javascript:; class="no-collor" ng-click="vm.writeReview()">
+                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Write review
+              </a>
             </div>
           </div>
         </div>

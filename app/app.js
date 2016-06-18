@@ -2,9 +2,11 @@
 
     angular.module('app', [
       'ngAnimate',
+      'ngAria',
       'ui.bootstrap',
       'ui.router',
-      'ui.select'
+      'ui.select',
+      'ngMaterial'
     ]);
 
 })();
