@@ -7,64 +7,73 @@
 
     function DashboardCtrl($scope, $rootScope, $timeout){
       var vm = this;
-      vm.restaurants = $rootScope.restaurants;
       vm.details = details;
       vm.reviews = reviews;
       vm.writeReview = writeReview;
-
-      vm.isBackground = true;
-      vm.isDetails = false;
-      vm.isReview = false;
-      vm.isWriteReview = false;
+      vm.publishReview = publishReview;
 
       activate();
 
       function activate(){
+        vm.restaurants = $rootScope.restaurants;
 
+        for (var i = 0; i < vm.restaurants.length; i++) {
+          vm.restaurants[i].isBackground = true;
+          vm.restaurants[i].isDetails = false;
+          vm.restaurants[i].isReview = false;
+          vm.restaurants[i].isWriteReview = false;
+        }
       }
 
-      function details(){
-        active('detail');
+      function publishReview(restaurant){
+        restaurant.isBackground = true;
+        restaurant.isDetails = false;
+        restaurant.isReview = false;
+        restaurant.isWriteReview = false;
       }
 
-      function reviews() {
-        active('review');
+      function details(restaurant){
+        active('detail', restaurant);
       }
 
-      function writeReview() {
-        active('write');
+      function reviews(restaurant) {
+        active('review', restaurant);
       }
 
-      function active(who){
+      function writeReview(restaurant) {
+        active('write', restaurant);
+      }
+
+      function active(who, restaurant){
         switch (who) {
           case 'detail':
-            vm.isBackground = false;
-            vm.isDetails = true;
-            vm.isReview = false;
-            vm.isWriteReview = false;
+            restaurant.isBackground = false;
+            restaurant.isDetails = true;
+            restaurant.isReview = false;
+            restaurant.isWriteReview = false;
             break;
           case 'review':
-            vm.isBackground = false;
-            vm.isDetails = false;
-            vm.isReview = true;
-            vm.isWriteReview = false;
+            restaurant.isBackground = false;
+            restaurant.isDetails = false;
+            restaurant.isReview = true;
+            restaurant.isWriteReview = false;
             break;
           case 'write':
-            vm.isBackground = false;
-            vm.isDetails = false;
-            vm.isReview = false;
-            vm.isWriteReview = true;
+            restaurant.isBackground = false;
+            restaurant.isDetails = false;
+            restaurant.isReview = false;
+            restaurant.isWriteReview = true;
             break;
         }
 
-        $timeout(function () {
-          if(!vm.isWriteReview){
-            vm.isBackground = true;
-            vm.isDetails = false;
-            vm.isReview = false;
-            vm.isWriteReview = false;
-          }
-        }, 10000);
+        // $timeout(function () {
+        //   if(!restaurant.isWriteReview){
+        //     restaurant.isBackground = true;
+        //     restaurant.isDetails = false;
+        //     restaurant.isReview = false;
+        //     restaurant.isWriteReview = false;
+        //   }
+        // }, 10000);
       }
 
     }

@@ -48,7 +48,7 @@
         </div>
         <div class="back bg-red lter">
           <!-- BACKGROUND -->
-          <div ng-show="vm.isBackground">
+          <div ng-show="restaurant.isBackground">
             <div class="rating-stars text-center">
               <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
               <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="0" title="one"></i>
@@ -60,39 +60,154 @@
           </div>
 
           <!-- DETAILS -->
-          <div ng-show="vm.isDetails">
-            details
-          </div>
+          <div ng-show="restaurant.isDetails" class="card-back-div">
 
-          <!-- REVIEWS -->
-          <div ng-show="vm.isReview">
-            reviews
-          </div>
+            <div class="tile-widget">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="media mb-20">
+                    <div class="pull-left thumb">
+                      <img class="media-object img-circle" ng-src="../images/{{restaurant.image}}" alt="">
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading mb-0">{{ restaurant.name }}</h4>
+                      <small class="text-lightred">Chef: <strong>{{ restaurant.chef }}</strong></small>
+                    </div>
+                  </div>
+                </div>
 
-          <!-- WRITEREVIEW -->
-          <div ng-show="vm.isWriteReview" class="card-back-div">
-            <div class="form-group">
-              <textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something about..." ng-model="user.message"></textarea>
+                <div class="col-xs-12">
+                  <dl class="dl-horizontal text-sm">
+                    <dt class="col-xs-3">Rating: </dt>
+                    <dd class="text-lightred col-xs-9">
+                      <i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
+                    </dd>
+                    <dt class="col-xs-3">Cuisine: </dt>
+                    <dd class="col-xs-9">{{ restaurant.cuisine }}</dd>
+                    <dt class="col-xs-12">Operating Hours: </dt>
+                    <dd class="col-xs-9">jquery, html, css, angularjs</dd>
+                  </dl>
+                </div>
+              </div>
             </div>
 
+          </div>
+          <!-- /DETAILS -->
+
+          <!-- REVIEWS -->
+          <div ng-show="restaurant.isReview">
+
+
+
+
+            <div class="tile-body" style="max-height: 215px;overflow:auto;" slimscroll="{height: '100%'}">
+
+            <ul class="chats p-0">
+              <li class="in">
+                <div class="media">
+                  <div class="pull-left thumb thumb-sm">
+                    <img class="media-object img-circle" src="images/random-avatar2.jpg" alt="">
+                  </div>
+                  <div class="media-body">
+                    <p class="media-heading"><a href="#" class="name">John Douey </a><span class="datetime">at 12.10.2014</span></p>
+                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                  </div>
+                </div>
+              </li>
+              <li class="out">
+                <div class="media">
+                  <div class="pull-right thumb thumb-sm">
+                    <img class="media-object img-circle" src="images/random-avatar1.jpg" alt="">
+                  </div>
+                  <div class="media-body">
+                    <p class="media-heading"><a href="#" class="name">You </a><span class="datetime">2 hours ago</span></p>
+                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                  </div>
+                </div>
+              </li>
+              <li class="in">
+                <div class="media">
+                  <div class="pull-left thumb thumb-sm">
+                    <img class="media-object img-circle" src="images/random-avatar2.jpg" alt="">
+                  </div>
+                  <div class="media-body">
+                    <p class="media-heading"><a href="#" class="name">John Douey </a><span class="datetime">2 hours ago</span></p>
+                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                  </div>
+                </div>
+              </li>
+              <li class="out">
+                <div class="media">
+                  <div class="pull-right thumb thumb-sm">
+                    <img class="media-object img-circle" src="images/random-avatar1.jpg" alt="">
+                  </div>
+                  <div class="media-body">
+                    <p class="media-heading"><a href="#" class="name">You </a><span class="datetime">1 hours ago</span></p>
+                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                  </div>
+                </div>
+              </li>
+              <li class="in">
+                <div class="media">
+                  <div class="pull-left thumb thumb-sm">
+                    <img class="media-object img-circle" src="images/random-avatar2.jpg" alt="">
+                  </div>
+                  <div class="media-body">
+                    <p class="media-heading"><a href="#" class="name">John Douey </a><span class="datetime">53 minutes ago</span></p>
+                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                  </div>
+                </div>
+              </li>
+              <li class="out">
+                <div class="media">
+                  <div class="pull-right thumb thumb-sm">
+                    <img class="media-object img-circle" src="images/random-avatar1.jpg" alt="">
+                  </div>
+                  <div class="media-body">
+                    <p class="media-heading"><a href="#" class="name">You </a><span class="datetime">40 minutes ago</span></p>
+                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
 
           </div>
 
+
+
+          </div>
+          <!-- /REVIEWS -->
+
+          <!-- WRITEREVIEW -->
+          <div ng-show="restaurant.isWriteReview" class="card-back-div">
+
+            <div class="form-group">
+              <input type="text" name="name" value="" placeholder="your name" class="col-xs-12">
+              <br>
+              <textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something about..." ng-model="user.message"></textarea>
+            </div>
+            <div class="text-center">
+              <div ng-init="x = 0" class="mb-10"><rating ng-model="x" max="5" state-on="'fa fa-star text-orange text-lg'" state-off="'fa fa-star-o text-lg'"></rating> <b>({{x}})</b></div>
+              <button class="btn btn-cyan btn-ef btn-ef-7 btn-ef-7h mb-10" activate-button="error" ng-click="vm.publishReview(restaurant)"> Publish</button>
+            </div>
+
+          </div>
+          <!-- /WRITEREVIEW -->
 
           <hr class="personalized">
           <div class="row">
             <div class="col-xs-4">
-              <a href=javascript:; class="no-collor" ng-click="vm.details()">
+              <a href=javascript:; class="no-collor" ng-click="vm.details(restaurant)">
                 <i class="fa fa-asterisk fa-2x" aria-hidden="true"></i> Details
               </a>
             </div>
             <div class="col-xs-4">
-              <a href=javascript:; class="no-collor" ng-click="vm.reviews()">
+              <a href=javascript:; class="no-collor" ng-click="vm.reviews(restaurant)">
                 <i class="fa fa-bars fa-2x" aria-hidden="true"></i> Reviews
               </a>
             </div>
             <div class="col-xs-4">
-              <a href=javascript:; class="no-collor" ng-click="vm.writeReview()">
+              <a href=javascript:; class="no-collor" ng-click="vm.writeReview(restaurant)">
                 <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Write review
               </a>
             </div>
