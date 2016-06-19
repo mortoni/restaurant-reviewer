@@ -97,84 +97,24 @@
           <!-- REVIEWS -->
           <div ng-show="restaurant.isReview">
 
+            <div class="tile-body review-content" style="max-height: 215px;overflow:auto;" slimscroll="{height: '100%'}">
+              <ul class="chats p-0">
+                <li ng-class="{'in': $index % 2 == 0 , 'out': $index % 2 != 0}" ng-repeat="review in vm.listReviews" ng-show="review.restaurant_id == restaurant.id">
 
+                  <div class="media">
+                    <div ng-class="{'pull-left': $index % 2 == 0 , 'pull-right': $index % 2 != 0}" class="thumb thumb-sm">
 
+                      <img class="media-object img-circle" src="images/random-avatar2.jpg" alt="">
+                    </div>
+                    <div class="media-body">
+                      <p class="media-heading"><a href="#" class="name">{{ review.username }}</a><span class="datetime">at {{ review.date }}</span></p>
+                      <span class="body">{{ review.review }}</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
 
-            <div class="tile-body" style="max-height: 215px;overflow:auto;" slimscroll="{height: '100%'}">
-
-            <ul class="chats p-0">
-              <li class="in">
-                <div class="media">
-                  <div class="pull-left thumb thumb-sm">
-                    <img class="media-object img-circle" src="images/random-avatar2.jpg" alt="">
-                  </div>
-                  <div class="media-body">
-                    <p class="media-heading"><a href="#" class="name">John Douey </a><span class="datetime">at 12.10.2014</span></p>
-                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                  </div>
-                </div>
-              </li>
-              <li class="out">
-                <div class="media">
-                  <div class="pull-right thumb thumb-sm">
-                    <img class="media-object img-circle" src="images/random-avatar1.jpg" alt="">
-                  </div>
-                  <div class="media-body">
-                    <p class="media-heading"><a href="#" class="name">You </a><span class="datetime">2 hours ago</span></p>
-                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                  </div>
-                </div>
-              </li>
-              <li class="in">
-                <div class="media">
-                  <div class="pull-left thumb thumb-sm">
-                    <img class="media-object img-circle" src="images/random-avatar2.jpg" alt="">
-                  </div>
-                  <div class="media-body">
-                    <p class="media-heading"><a href="#" class="name">John Douey </a><span class="datetime">2 hours ago</span></p>
-                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                  </div>
-                </div>
-              </li>
-              <li class="out">
-                <div class="media">
-                  <div class="pull-right thumb thumb-sm">
-                    <img class="media-object img-circle" src="images/random-avatar1.jpg" alt="">
-                  </div>
-                  <div class="media-body">
-                    <p class="media-heading"><a href="#" class="name">You </a><span class="datetime">1 hours ago</span></p>
-                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                  </div>
-                </div>
-              </li>
-              <li class="in">
-                <div class="media">
-                  <div class="pull-left thumb thumb-sm">
-                    <img class="media-object img-circle" src="images/random-avatar2.jpg" alt="">
-                  </div>
-                  <div class="media-body">
-                    <p class="media-heading"><a href="#" class="name">John Douey </a><span class="datetime">53 minutes ago</span></p>
-                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                  </div>
-                </div>
-              </li>
-              <li class="out">
-                <div class="media">
-                  <div class="pull-right thumb thumb-sm">
-                    <img class="media-object img-circle" src="images/random-avatar1.jpg" alt="">
-                  </div>
-                  <div class="media-body">
-                    <p class="media-heading"><a href="#" class="name">You </a><span class="datetime">40 minutes ago</span></p>
-                    <span class="body">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-
-          </div>
-
-
-
+            </div>
           </div>
           <!-- /REVIEWS -->
 

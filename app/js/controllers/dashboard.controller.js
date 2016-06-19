@@ -17,6 +17,11 @@
       function activate(){
         vm.restaurants = $rootScope.restaurants;
 
+        firebase.database().ref('reviews').on('value', function(snapshot) {
+          vm.listReviews = snapshot.val();
+        });
+
+
         for (var i = 0; i < vm.restaurants.length; i++) {
           vm.restaurants[i].isBackground = true;
           vm.restaurants[i].isDetails = false;
@@ -108,14 +113,14 @@
             break;
         }
 
-        $timeout(function () {
-          if(!restaurant.isWriteReview){
-            restaurant.isBackground = true;
-            restaurant.isDetails = false;
-            restaurant.isReview = false;
-            restaurant.isWriteReview = false;
-          }
-        }, 10000);
+        // $timeout(function () {
+        //   if(!restaurant.isWriteReview || !restaurant.isReview){
+        //     restaurant.isBackground = true;
+        //     restaurant.isDetails = false;
+        //     restaurant.isReview = false;
+        //     restaurant.isWriteReview = false;
+        //   }
+        // }, 10000);
       }
 
     }
