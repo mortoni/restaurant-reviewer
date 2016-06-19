@@ -182,13 +182,31 @@
           <div ng-show="restaurant.isWriteReview" class="card-back-div">
 
             <div class="form-group">
-              <input type="text" name="name" value="" placeholder="your name" class="col-xs-12">
+              <input type="text"
+                     class="form-control col-xs-12"
+                     placeholder="Your name"
+                     ng-model="restaurant.reviews.userName"
+                     minlength="3"
+                     maxlength="10">
               <br>
-              <textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something about..." ng-model="user.message"></textarea>
+              <br>
+              <textarea class="form-control"
+                        rows="3"
+                        placeholder="Write something about {{restaurant.name}}"
+                        ng-model="restaurant.reviews.message"
+                        maxlength="100">
+              </textarea>
             </div>
+
             <div class="text-center">
-              <div ng-init="x = 0" class="mb-10"><rating ng-model="x" max="5" state-on="'fa fa-star text-orange text-lg'" state-off="'fa fa-star-o text-lg'"></rating> <b>({{x}})</b></div>
-              <button class="btn btn-cyan btn-ef btn-ef-7 btn-ef-7h mb-10" activate-button="error" ng-click="vm.publishReview(restaurant)"> Publish</button>
+              <div ng-init="x = 0" class="mb-10">
+                <rating ng-model="restaurant.reviews.rate" max="5" state-on="'fa fa-star text-orange text-lg'" state-off="'fa fa-star-o text-lg'"></rating>
+                <b>({{restaurant.reviews.rate}})</b>
+              </div>
+              <button class="btn btn-cyan btn-ef btn-ef-7 btn-ef-7h mb-10"
+                      ng-click="vm.publishReview(restaurant)"
+                      ng-disabled="!restaurant.reviews.userName || !restaurant.reviews.rate"> Publish
+              </button>
             </div>
 
           </div>

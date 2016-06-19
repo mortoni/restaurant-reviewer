@@ -3,9 +3,9 @@
 
   angular.module('app').controller('DashboardCtrl', DashboardCtrl);
 
-    DashboardCtrl.$inject = ['$scope', '$rootScope', '$timeout'];
+    DashboardCtrl.$inject = ['$scope', '$rootScope', '$timeout', '$mdToast'];
 
-    function DashboardCtrl($scope, $rootScope, $timeout){
+    function DashboardCtrl($scope, $rootScope, $timeout, $mdToast){
       var vm = this;
       vm.details = details;
       vm.reviews = reviews;
@@ -25,11 +25,53 @@
         }
       }
 
+      function getDate(){
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+        var today = dd+'/'+mm+'/'+yyyy;
+        return today;
+      }
+
+      function showToast(){
+        $mdToast.show({
+          parent: angular.element(document.querySelector('#toastContainer')),
+          controller: 'ToastShowCtrl',
+          templateUrl: '../views/toast-template.html',
+          hideDelay: 6000,
+          position: "top right"
+        });
+      }
+
       function publishReview(restaurant){
+        var review = {
+          username: restaurant.reviews.userName,
+          review: restaurant.reviews.message,
+          rate: restaurant.reviews.rate,
+          date: getDate(),
+          restaurant_id: restaurant.id
+        };
+
+        firebase.database().ref('reviews/').push(review);
+
+        restaurant.reviews.userName = '';
+        restaurant.reviews.message = '';
+        restaurant.reviews.rate = 0;
+
         restaurant.isBackground = true;
         restaurant.isDetails = false;
         restaurant.isReview = false;
         restaurant.isWriteReview = false;
+
+        showToast();
       }
 
       function details(restaurant){
@@ -66,14 +108,14 @@
             break;
         }
 
-        // $timeout(function () {
-        //   if(!restaurant.isWriteReview){
-        //     restaurant.isBackground = true;
-        //     restaurant.isDetails = false;
-        //     restaurant.isReview = false;
-        //     restaurant.isWriteReview = false;
-        //   }
-        // }, 10000);
+        $timeout(function () {
+          if(!restaurant.isWriteReview){
+            restaurant.isBackground = true;
+            restaurant.isDetails = false;
+            restaurant.isReview = false;
+            restaurant.isWriteReview = false;
+          }
+        }, 10000);
       }
 
     }
