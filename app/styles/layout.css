@@ -122,3 +122,7 @@
 .card-back-div, .review-content{
   padding: 5px;
 }
+
+.chef-label, .start-color {
+  color: #ffc100;
+}

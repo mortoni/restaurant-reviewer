@@ -3,13 +3,14 @@
 
     angular.module('app').controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', '$rootScope', '$state'];
+    LoginCtrl.$inject = ['$scope', '$rootScope', '$state', 'Auth'];
 
-    function LoginCtrl($scope, $rootScope, $state) {
+    function LoginCtrl($scope, $rootScope, $state, Auth) {
       var vm = this;
       var user;
 
       vm.doFacebookLogin = doFacebookLogin;
+      vm.doLogin = doLogin;
 
       var provider = new firebase.auth.FacebookAuthProvider();
 
@@ -45,6 +46,12 @@
           var errorMessage = error.message;
           // ...
         });
+      }
+
+      function doLogin(){
+        //TODO get user from firebase and populate the service.
+        Auth.setUser('teste');
+        $state.go('app.dashboard');
       }
 
 

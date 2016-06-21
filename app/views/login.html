@@ -22,7 +22,7 @@
       </div>
 
       <div class="form-group text-left mt-20">
-        <button type="submit" class="btn btn-greensea b-0 br-2 mr-5" ng-click="login()" ng-disabled='form.$invalid'>Login</button>
+        <button type="submit" class="btn btn-greensea b-0 br-2 mr-5" ng-click="vm.doLogin()" ng-disabled='form.$invalid'>Login</button>
         <a ui-sref="core.forgotpass" class="pull-right mt-10">Forgot Password?</a>
       </div>
 
@@ -47,7 +47,7 @@
 
     <div class="bg-slategray lt wrap-reset mt-40">
       <p class="m-0">
-        <a ui-sref="signup" class="text-uppercase">Create an account</a>
+        <a ui-sref="core.signup" class="text-uppercase">Create an account</a>
       </p>
     </div>
 

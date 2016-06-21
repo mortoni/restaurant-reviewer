@@ -8,13 +8,13 @@
         user =  aUser;
       }
 
-      function isLoggedIn(){
-        return(user)? user : false;
+      function getUser(){
+        return user;
       }
 
       return {
-        setUser     : setUser,
-        isLoggedIn  : isLoggedIn
+        setUser  : setUser,
+        getUser  : getUser
       }
     });
 

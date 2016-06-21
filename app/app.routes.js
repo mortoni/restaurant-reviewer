@@ -12,26 +12,29 @@
       .state('app', {
         abstract: true,
         url: '/app',
+        templateUrl: 'views/app.html',
         data: {
-          requireLogin: false
-        },
-        templateUrl: 'views/app.html'
+          requireLogin: true
+        }
       })
       //dashboard
       .state('app.dashboard', {
         url: '/dashboard',
         controller: 'DashboardCtrl',
         templateUrl: 'views/app.dashboard.html',
-        controllerAs: 'vm',
+        controllerAs: 'vm'
+
+      })
+      .state('core', {
+        abstract: true,
+        url: '/core',
+        templateUrl: 'views/core.html',
+        data: {
+          requireLogin: false
+        },
         resolve: {
-          // delay: function($q, $timeout) {
-          //   var delay = $q.defer();
-          //   $timeout(delay.resolve, 5000);
-          //   return delay.promise;
-          // }
           restaurants: function($rootScope, $q){
             var delay = $q.defer();
-
             firebase.database().ref('restaurants').on('value', function(snapshot) {
               $rootScope.restaurants = snapshot.val();
               delay.resolve();
@@ -39,15 +42,18 @@
             return delay.promise;
           }
         }
+      })
+      .state('core.login', {
+        url: '/login',
+        controller: 'LoginCtrl',
+        controllerAs: 'vm',
+        templateUrl: 'views/login.html'
+      })
+      .state('core.signup', {
+        url: '/signup',
+        controller: 'LoginCtrl',
+        controllerAs: 'vm',
+        templateUrl: 'views/signup.html'
       });
-
-      // .state('signup', {
-      //   url: '/signup',
-      //   controller: 'LoginCtrl',
-      //   templateUrl: 'views/signup.html',
-      //   data: {
-      //     requireLogin: false
-      //   }
-      // });
     }]);
 })();

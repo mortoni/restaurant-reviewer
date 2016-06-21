@@ -3,14 +3,15 @@
 
   angular.module('app').controller('DashboardCtrl', DashboardCtrl);
 
-    DashboardCtrl.$inject = ['$scope', '$rootScope', '$timeout', '$mdToast'];
+    DashboardCtrl.$inject = ['$scope', '$rootScope', '$timeout', '$mdToast', '$q'];
 
-    function DashboardCtrl($scope, $rootScope, $timeout, $mdToast){
+    function DashboardCtrl($scope, $rootScope, $timeout, $mdToast, $q){
       var vm = this;
       vm.details = details;
       vm.reviews = reviews;
       vm.writeReview = writeReview;
       vm.publishReview = publishReview;
+      vm.calcRate = calcRate;
 
       activate();
 
@@ -30,6 +31,10 @@
         }
       }
 
+      function calcRate(){
+
+      }
+
       function getDate(){
         var today = new Date();
         var dd = today.getDate();
@@ -37,12 +42,12 @@
 
         var yyyy = today.getFullYear();
         if(dd<10){
-            dd='0'+dd
+            dd='0'+dd;
         }
         if(mm<10){
-            mm='0'+mm
+            mm='0'+mm;
         }
-        var today = dd+'/'+mm+'/'+yyyy;
+        today = dd+'/'+mm+'/'+yyyy;
         return today;
       }
 
@@ -57,6 +62,7 @@
       }
 
       function publishReview(restaurant){
+        var restaurant_rate = 5;
         var review = {
           username: restaurant.reviews.userName,
           review: restaurant.reviews.message,
@@ -66,6 +72,12 @@
         };
 
         firebase.database().ref('reviews/').push(review);
+
+        firebase.database().ref('restaurants/' + (restaurant.id - 1) + '/rate').on('value', function(snapshot) {
+          restaurant_rate = snapshot.val();
+        });
+
+        firebase.database().ref('restaurants/' + (restaurant.id - 1) + '/rate').set((restaurant_rate + review.rate) * 0.5);
 
         restaurant.reviews.userName = '';
         restaurant.reviews.message = '';

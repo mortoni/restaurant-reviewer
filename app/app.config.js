@@ -5,13 +5,18 @@
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.$on('$stateChangeSuccess', function(event, toState) {
+      $rootScope.hideSpin = false;
+      var requireLogin = toState.data.requireLogin;
+
+      if (requireLogin && typeof Auth.getUser() === 'undefined') {
+        event.preventDefault();
+        $state.go('core.login');
+      }
+
       event.targetScope.$watch('$viewContentLoaded', function () {
-
         angular.element('html, body, #content').animate({ scrollTop: 0 }, 200);
-
         setTimeout(function () {
           angular.element('#wrap').css('visibility','visible');
-
           if (!angular.element('.dropdown').hasClass('open')) {
             angular.element('.dropdown').find('>ul').slideUp();
           }
