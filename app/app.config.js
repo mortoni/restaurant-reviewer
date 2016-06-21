@@ -5,6 +5,7 @@
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.$on('$stateChangeSuccess', function(event, toState) {
+      $rootScope.dashboard = false;
       $rootScope.hideSpin = false;
       var requireLogin = toState.data.requireLogin;
 

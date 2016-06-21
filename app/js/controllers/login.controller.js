@@ -7,17 +7,21 @@
 
     function LoginCtrl($scope, $rootScope, $state, Auth) {
       var vm = this;
-      var user;
+      vm.newUser = {};
+      vm.user = {};
 
       vm.doFacebookLogin = doFacebookLogin;
       vm.doLogin = doLogin;
+      vm.doSignUp = doSignUp;
 
       var provider = new firebase.auth.FacebookAuthProvider();
 
       activate();
 
       function activate() {
-
+        firebase.database().ref('restaurants').on('value', function(snapshot) {
+              var tes = snapshot.val();
+            });
       }
 
       function doFacebookLogin() {
@@ -50,10 +54,43 @@
 
       function doLogin(){
         //TODO get user from firebase and populate the service.
+        firebase.auth().signInWithEmailAndPassword(vm.user.email, vm.user.password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+        });
+
+        var fireUser = firebase.auth().currentUser;
+
+        // var currentUser{
+        //   email: ,
+        //   image: ,
+        //   name: ,
+        // }
+
         Auth.setUser('teste');
         $state.go('app.dashboard');
       }
 
+      function doSignUp(){
 
+        firebase.auth().createUserWithEmailAndPassword(vm.newUser.email, vm.newUser.password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // ...
+        });
+
+        var user = firebase.auth().currentUser;
+
+        user.updateProfile({
+          displayName: vm.newUser.name,
+        }).then(function() {
+          $state.go('app.dashboard');
+        }, function(error) {
+          // An error happened.
+        });
+      }
     }
 })();

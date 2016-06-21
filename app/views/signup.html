@@ -17,18 +17,38 @@
       </p>
 
       <div class="form-group">
-        <input type="email" class="form-control underline-input" placeholder="Email" ng-model="email" required>
+        <input type="text"
+               class="form-control underline-input"
+               placeholder="Name"
+               ng-model="vm.newUser.name"
+               required>
       </div>
 
       <div class="form-group">
-        <input type="password" placeholder="Password" class="form-control underline-input" ng-model="password" required>
+        <input type="email"
+               class="form-control underline-input"
+               placeholder="Email"
+               ng-model="vm.newUser.email"
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+               required>
+      </div>
+
+      <div class="form-group">
+        <input type="password"
+               placeholder="Password"
+               class="form-control underline-input"
+               ng-model="vm.newUser.password"
+               ng-minlength="6"
+               required>
       </div>
 
     </form>
 
     <div class="bg-slategray lt wrap-reset mt-20 text-left">
       <p class="m-0">
-        <a ui-sref="app.dashboard" class="btn btn-greensea b-0 text-uppercase pull-right" ng-disabled='form.$invalid'>Submit</a>
+        <a ng-click="vm.doSignUp()"
+           class="btn btn-greensea b-0 text-uppercase pull-right"
+           ng-disabled='form.$invalid'>Submit</a>
         <a ui-sref="core.login" class="btn btn-lightred b-0 text-uppercase">Back</a>
       </p>
     </div>
