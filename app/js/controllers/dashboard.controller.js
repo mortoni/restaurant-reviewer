@@ -3,9 +3,9 @@
 
   angular.module('app').controller('DashboardCtrl', DashboardCtrl);
 
-    DashboardCtrl.$inject = ['$scope', '$rootScope', '$timeout', '$mdToast', '$q', 'Auth'];
+    DashboardCtrl.$inject = ['$scope', '$rootScope', '$timeout', '$mdToast', '$q', 'Auth', 'restSrv'];
 
-    function DashboardCtrl($scope, $rootScope, $timeout, $mdToast, $q, Auth){
+    function DashboardCtrl($scope, $rootScope, $timeout, $mdToast, $q, Auth, restSrv){
       var vm = this;
       // vm.user = Auth.getUser();
       vm.details = details;
@@ -17,22 +17,18 @@
       activate();
 
       function activate(){
-        if($rootScope.restaurants){
-          $rootScope.dashboard = true; // show dashboard
+        vm.restaurants = restSrv.getRestaurants();
 
-          vm.restaurants = $rootScope.restaurants;
-
-          firebase.database().ref('reviews').on('value', function(snapshot) {
-            vm.listReviews = snapshot.val();
-          });
+        firebase.database().ref('reviews').on('value', function(snapshot) {
+          vm.listReviews = snapshot.val();
+        });
 
 
-          for (var i = 0; i < vm.restaurants.length; i++) {
-            vm.restaurants[i].isBackground = true;
-            vm.restaurants[i].isDetails = false;
-            vm.restaurants[i].isReview = false;
-            vm.restaurants[i].isWriteReview = false;
-          }
+        for (var i = 0; i < vm.restaurants.length; i++) {
+          vm.restaurants[i].isBackground = true;
+          vm.restaurants[i].isDetails = false;
+          vm.restaurants[i].isReview = false;
+          vm.restaurants[i].isWriteReview = false;
         }
       }
 

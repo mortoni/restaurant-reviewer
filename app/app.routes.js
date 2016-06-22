@@ -33,10 +33,18 @@
           requireLogin: false
         },
         resolve: {
-          restaurants: function($rootScope, $q){
+          restaurants: function($q, restSrv) {
             var delay = $q.defer();
             firebase.database().ref('restaurants').on('value', function(snapshot) {
-              $rootScope.restaurants = snapshot.val();
+              restSrv.setRestaurants(snapshot.val());
+              delay.resolve();
+            });
+            return delay.promise;
+          },
+          reviews: function($q, restSrv) {
+            var delay = $q.defer();
+            firebase.database().ref('reviews').on('value', function(snapshot) {
+              restSrv.setReviews(snapshot.val());
               delay.resolve();
             });
             return delay.promise;

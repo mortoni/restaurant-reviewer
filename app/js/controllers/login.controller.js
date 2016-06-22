@@ -3,14 +3,16 @@
 
     angular.module('app').controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', '$rootScope', '$state', 'Auth'];
+    LoginCtrl.$inject = ['$scope', '$state', 'Auth'];
 
-    function LoginCtrl($scope, $rootScope, $state, Auth) {
+    function LoginCtrl($scope, $state, Auth) {
       var vm = this;
+
       vm.newUser = {};
       vm.user = {};
+      vm.dashboard = true;
 
-      vm.doFacebookLogin = doFacebookLogin;
+      // vm.doFacebookLogin = doFacebookLogin;
       vm.doLogin = doLogin;
       vm.doSignUp = doSignUp;
 
@@ -19,29 +21,27 @@
       activate();
 
       function activate() {
-        firebase.database().ref('restaurants').on('value', function(snapshot) {
-              var tes = snapshot.val();
-            });
-      }
-
-      function doFacebookLogin() {
-
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-           // User signed in!
-           $rootScope.user = result.user;
-           if($rootScope.user)
-             $state.go('app.dashboard');
-        }).catch(function(error) {
-          // An error occurred
-        });
 
       }
 
-      $rootScope.$watch("user", function handleUser() {
-        if($rootScope.user)
-          var teste = 1;
-          //$state.go('app.dashboard');
-      });
+      // function doFacebookLogin() {
+      //
+      //   firebase.auth().signInWithPopup(provider).then(function(result) {
+      //      // User signed in!
+      //      $rootScope.user = result.user;
+      //      if($rootScope.user)
+      //        $state.go('app.dashboard');
+      //   }).catch(function(error) {
+      //     // An error occurred
+      //   });
+      //
+      // }
+      //
+      // $rootScope.$watch("user", function handleUser() {
+      //   if($rootScope.user)
+      //     var teste = 1;
+      //     //$state.go('app.dashboard');
+      // });
 
       function createUser(){
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -64,7 +64,7 @@
         var fireUser = firebase.auth().currentUser;
 
         // var currentUser{
-        //   email: ,
+        //   email: fireUser.em,
         //   image: ,
         //   name: ,
         // }
