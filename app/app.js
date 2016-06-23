@@ -6,7 +6,8 @@
       'ui.bootstrap',
       'ui.router',
       'ui.select',
-      'ngMaterial'
+      'ngMaterial',
+      'angular-md5'
     ]);
 
 })();

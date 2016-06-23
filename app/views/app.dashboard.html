@@ -145,14 +145,6 @@
           <div ng-show="restaurant.isWriteReview" class="card-back-div">
 
             <div class="form-group">
-              <input type="text"
-                     class="form-control col-xs-12"
-                     placeholder="Your name"
-                     ng-model="restaurant.reviews.userName"
-                     minlength="3"
-                     maxlength="10">
-              <br>
-              <br>
               <textarea class="form-control"
                         rows="3"
                         placeholder="Write something about {{restaurant.name}}"
@@ -168,7 +160,7 @@
               </div>
               <button class="btn btn-cyan btn-ef btn-ef-7 btn-ef-7h mb-10"
                       ng-click="vm.publishReview(restaurant)"
-                      ng-disabled="!restaurant.reviews.userName || !restaurant.reviews.rate"> Publish
+                      ng-disabled="!restaurant.reviews.rate"> Publish
               </button>
             </div>
 

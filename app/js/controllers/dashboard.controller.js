@@ -63,6 +63,7 @@
       }
 
       function publishReview(restaurant){
+        var teste = Auth.getUser();
         var restaurant_rate = 5;
         var review = {
           username: restaurant.reviews.userName,

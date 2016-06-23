@@ -12,7 +12,8 @@ gulp.task('server:dev', function() {
             baseDir: ["app"],
             index: "index.html",
             routes: {
-                "/bower_components": "bower_components"
+                "/bower_components": "bower_components",
+                "/node_modules": "node_modules"
             }
         },
         browser: "google chrome canary"

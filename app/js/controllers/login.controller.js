@@ -3,45 +3,21 @@
 
     angular.module('app').controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', '$state', 'Auth'];
+    LoginCtrl.$inject = ['$scope', '$state', 'Auth', 'gravatar'];
 
-    function LoginCtrl($scope, $state, Auth) {
+    function LoginCtrl($scope, $state, Auth, gravatar) {
       var vm = this;
 
       vm.newUser = {};
       vm.user = {};
-      vm.dashboard = true;
-
-      // vm.doFacebookLogin = doFacebookLogin;
       vm.doLogin = doLogin;
       vm.doSignUp = doSignUp;
-
-      var provider = new firebase.auth.FacebookAuthProvider();
 
       activate();
 
       function activate() {
 
       }
-
-      // function doFacebookLogin() {
-      //
-      //   firebase.auth().signInWithPopup(provider).then(function(result) {
-      //      // User signed in!
-      //      $rootScope.user = result.user;
-      //      if($rootScope.user)
-      //        $state.go('app.dashboard');
-      //   }).catch(function(error) {
-      //     // An error occurred
-      //   });
-      //
-      // }
-      //
-      // $rootScope.$watch("user", function handleUser() {
-      //   if($rootScope.user)
-      //     var teste = 1;
-      //     //$state.go('app.dashboard');
-      // });
 
       function createUser(){
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -63,13 +39,13 @@
 
         var fireUser = firebase.auth().currentUser;
 
-        // var currentUser{
-        //   email: fireUser.em,
-        //   image: ,
-        //   name: ,
-        // }
+        var currentUser = {
+          email: fireUser.email,
+          image: fireUser.photoURL,
+          name: fireUser.displayName,
+        };
 
-        Auth.setUser('teste');
+        Auth.setUser(currentUser);
         $state.go('app.dashboard');
       }
 
@@ -86,6 +62,13 @@
 
         user.updateProfile({
           displayName: vm.newUser.name,
+          photoURL: gravatar.create(vm.newUser.email, {
+          	size: 200,     // 1- 2048px
+          	defaultImage: 'retro', // 'identicon', 'monsterid', 'wavatar', 'retro', 'blank'
+          	rating: 'g',   // 'pg', 'r', 'x'
+          	secure: true,
+          	forceDefault: true
+          })
         }).then(function() {
           $state.go('app.dashboard');
         }, function(error) {
