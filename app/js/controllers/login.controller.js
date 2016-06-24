@@ -16,7 +16,11 @@
       activate();
 
       function activate() {
-
+        firebase.database().ref('restaurants').on('value', function(snapshot) {
+          var teste = snapshot.val();
+          // restSrv.setRestaurants(snapshot.val());
+          // delay.resolve();
+        });
       }
 
       function createUser(){
@@ -49,31 +53,84 @@
         $state.go('app.dashboard');
       }
 
-      function doSignUp(){
-
+      function createUser() {
         firebase.auth().createUserWithEmailAndPassword(vm.newUser.email, vm.newUser.password).catch(function(error) {
-          // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
-          // ...
         });
+      }
 
-        var user = firebase.auth().currentUser;
+      function updateUser() {
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            if(user.email == vm.newUser.email) {
+              user.updateProfile({
+                displayName: vm.newUser.name,
+                photoURL: getPhotoURL()
+              }).then(function() {
 
-        user.updateProfile({
-          displayName: vm.newUser.name,
-          photoURL: gravatar.create(vm.newUser.email, {
-          	size: 200,     // 1- 2048px
-          	defaultImage: 'retro', // 'identicon', 'monsterid', 'wavatar', 'retro', 'blank'
-          	rating: 'g',   // 'pg', 'r', 'x'
-          	secure: true,
-          	forceDefault: true
-          })
-        }).then(function() {
-          $state.go('app.dashboard');
-        }, function(error) {
-          // An error happened.
+                var currentUser = {
+                  email : user.email,
+                  image : user.photoURL,
+                  name  : user.displayName,
+                };
+
+                Auth.setUser(currentUser);
+                $state.go('app.dashboard');
+              }, function(error) {
+                // An error happened.
+              });
+            }
+            var teste = 1;
+          } else {
+            // No user is signed in.
+          }
         });
+      }
+
+      function getPhotoURL() {
+        return gravatar.create(vm.newUser.email, {
+            size: 200,     // 1- 2048px
+            defaultImage: 'retro', // 'identicon', 'monsterid', 'wavatar', 'retro', 'blank'
+            rating: 'g',   // 'pg', 'r', 'x'
+            secure: true,
+            forceDefault: true
+          });
+      }
+
+      function doSignUp(){
+        createUser();
+        updateUser();
+        // var user = firebase.auth().currentUser;
+
+        // if(user) {
+        //   var gravatarURL = gravatar.create(vm.newUser.email, {
+        //     size: 200,     // 1- 2048px
+        //     defaultImage: 'retro', // 'identicon', 'monsterid', 'wavatar', 'retro', 'blank'
+        //     rating: 'g',   // 'pg', 'r', 'x'
+        //     secure: true,
+        //     forceDefault: true
+        //   });
+        //
+        //
+        //   user.updateProfile({
+        //     displayName: vm.newUser.name
+        //     // photoURL: gravatarURL
+        //   }).then(function() {
+        //     var currentUser = {
+        //       email : vm.newUser.email,
+        //       image : gravatarURL,
+        //       name  : vm.newUser.name,
+        //     };
+        //
+        //     Auth.setUser(currentUser);
+        //     $state.go('app.dashboard');
+        //   }, function(error) {
+        //     // An error happened.
+        //   });
+        // }
+
+
       }
     }
 })();
