@@ -5,7 +5,7 @@
 
       // $locationProvider.html5Mode(true).hashPrefix('!'); //Remove the '#' from URL.
 
-      $urlRouterProvider.otherwise('/app/dashboard');
+      $urlRouterProvider.otherwise('/core/login');
 
       $stateProvider
 

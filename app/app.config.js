@@ -2,6 +2,7 @@
   'use strict';
 
   angular.module('app').run(['$rootScope', '$state', '$stateParams', 'Auth', function($rootScope, $state, $stateParams, Auth) {
+    $rootScope.dashboard = false;
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.$on('$stateChangeSuccess', function(event, toState) {

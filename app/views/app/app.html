@@ -1,7 +1,10 @@
-<section ng-include="'views/shared/header.html'" id="header" class="{{main.settings.navbarHeaderColor}}"></section>
+<div ng-show="dashboard">
+  <section ng-include="'views/shared/header.html'" id="header" class="{{main.settings.navbarHeaderColor}}"></section>
 
-<div class="view-container" ui-view-container>
-  <section ui-view id="content" autoscroll="false"></section>
+  <div class="view-container" ui-view-container>
+    <section ui-view id="content" autoscroll="false"></section>
+  </div>
 </div>
+
 <!-- <md-content class="md-padding" id="toastContainer"> -->
 <!-- <section ng-include="'views/shared/footer.html'"></section> -->

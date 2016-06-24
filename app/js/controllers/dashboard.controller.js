@@ -7,7 +7,10 @@
 
     function DashboardCtrl($scope, $rootScope, $timeout, $mdToast, $q, Auth, restSrv){
       var vm = this;
-      // vm.user = Auth.getUser();
+
+      $rootScope.dashboard = true;
+
+      vm.user = Auth.getUser();
       vm.details = details;
       vm.reviews = reviews;
       vm.writeReview = writeReview;
@@ -66,7 +69,8 @@
         var teste = Auth.getUser();
         var restaurant_rate = 5;
         var review = {
-          username: restaurant.reviews.userName,
+          userName: vm.user.name,
+          userPhoto: vm.user.image,
           review: restaurant.reviews.message,
           rate: restaurant.reviews.rate,
           date: getDate(),
@@ -81,7 +85,6 @@
 
         firebase.database().ref('restaurants/' + (restaurant.id - 1) + '/rate').set((restaurant_rate + review.rate) * 0.5);
 
-        restaurant.reviews.userName = '';
         restaurant.reviews.message = '';
         restaurant.reviews.rate = 0;
 
@@ -90,7 +93,7 @@
         restaurant.isReview = false;
         restaurant.isWriteReview = false;
 
-        showToast();
+        // showToast(); TODO
       }
 
       function details(restaurant){

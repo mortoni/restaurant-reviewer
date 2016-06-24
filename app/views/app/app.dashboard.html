@@ -126,11 +126,12 @@
                   <div class="media">
                     <div ng-class="{'pull-left': $index % 2 == 0 , 'pull-right': $index % 2 != 0}" class="thumb thumb-sm">
 
-                      <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                      <!-- <i class="fa fa-user fa-2x" aria-hidden="true"></i> -->
+                      <img class="media-object img-circle" ng-src="{{review.userPhoto}}" alt="">
 
                     </div>
                     <div class="media-body">
-                      <p class="media-heading"><a href="#" class="name">{{ review.username }}</a><strong> at {{ review.date }}</strong></p>
+                      <p class="media-heading"><a href="#" class="name">{{ review.userName }}</a><strong> at {{ review.date }}</strong></p>
                       <span class="body">{{ review.review }}</span>
                     </div>
                   </div>
