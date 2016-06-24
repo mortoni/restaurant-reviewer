@@ -12,7 +12,7 @@
       .state('app', {
         abstract: true,
         url: '/app',
-        templateUrl: 'views/app.html',
+        templateUrl: 'views/app/app.html',
         data: {
           requireLogin: true
         }
@@ -21,14 +21,14 @@
       .state('app.dashboard', {
         url: '/dashboard',
         controller: 'DashboardCtrl',
-        templateUrl: 'views/app.dashboard.html',
+        templateUrl: 'views/app/app.dashboard.html',
         controllerAs: 'vm'
 
       })
       .state('core', {
         abstract: true,
         url: '/core',
-        templateUrl: 'views/core.html',
+        templateUrl: 'views/core/core.html',
         data: {
           requireLogin: false
         },
@@ -55,13 +55,13 @@
         url: '/login',
         controller: 'LoginCtrl',
         controllerAs: 'vm',
-        templateUrl: 'views/login.html'
+        templateUrl: 'views/core/core.login.html'
       })
       .state('core.signup', {
         url: '/signup',
         controller: 'LoginCtrl',
         controllerAs: 'vm',
-        templateUrl: 'views/signup.html'
+        templateUrl: 'views/core/core.signup.html'
       });
     }]);
 })();
