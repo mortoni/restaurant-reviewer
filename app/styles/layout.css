@@ -126,3 +126,8 @@
 .chef-label, .start-color {
   color: #ffc100;
 }
+
+.pull-down {
+  position: absolute;
+  bottom: 0;
+}

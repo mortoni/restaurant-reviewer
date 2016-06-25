@@ -19,16 +19,16 @@
 
       }
 
-      function createUser(){
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        then(function(user) {
-          //TODO success message
-        }).catch(function(error) {
-          //TODO manage error
-          var errorCode = error.code;
-          var errorMessage = error.message;
-        });
-      }
+      // function createUser(){
+      //   firebase.auth().createUserWithEmailAndPassword(email, password)
+      //   .then(function(user) {
+      //     //TODO success message
+      //   }).catch(function(error) {
+      //     //TODO manage error
+      //     var errorCode = error.code;
+      //     var errorMessage = error.message;
+      //   });
+      // }
 
       function doLogin(){
         firebase.auth().signInWithEmailAndPassword(vm.user.email, vm.user.password)

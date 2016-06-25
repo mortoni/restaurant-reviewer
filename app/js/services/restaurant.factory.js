@@ -17,6 +17,4 @@
         setReviews      : setReviews
       };
     });
-
-
 })();

@@ -41,7 +41,7 @@
             <div class="card-footer">
               <ul>
                 <li class="lead">{{ restaurant.name }}</li>
-                <li class="strap">here shows the last review</li>
+                <li class="strap">{{ restaurant.country }}</li>
               </ul>
             </div>
           <!-- </div> -->
@@ -71,7 +71,7 @@
                     </div>
                     <div class="media-body">
                       <h4 class="media-heading mb-0">{{ restaurant.name }}</h4>
-                      <small class="text-lightred">Chef: <strong class="chef-label">{{ restaurant.chef }}</strong></small>
+                      <small>Chef: <strong class="chef-label">{{ restaurant.chef }}</strong></small>
                     </div>
                   </div>
                 </div>
@@ -168,8 +168,9 @@
           </div>
           <!-- /WRITEREVIEW -->
 
-          <hr class="personalized">
-          <div class="row">
+
+          <div class="row pull-down col-xs-12">
+            <hr class="personalized">
             <div class="col-xs-4">
               <a href=javascript:; class="no-collor" ng-click="vm.details(restaurant)">
                 <i class="fa fa-asterisk fa-2x" aria-hidden="true"></i> Details

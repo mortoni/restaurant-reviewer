@@ -22,8 +22,14 @@
       function activate(){
         vm.restaurants = restSrv.getRestaurants();
 
+        vm.restaurants.forEach(function(restaurant){
+          restaurant.reviews = {};
+          restaurant.reviews.rate = 0;
+        });
+
         firebase.database().ref('reviews').on('value', function(snapshot) {
           vm.listReviews = snapshot.val();
+          var teste = vm.listReviews[vm.listReviews.length -1];
         });
 
 
@@ -66,12 +72,11 @@
       }
 
       function publishReview(restaurant){
-        var teste = Auth.getUser();
         var restaurant_rate = 5;
         var review = {
           userName: vm.user.name,
           userPhoto: vm.user.image,
-          review: restaurant.reviews.message,
+          review: restaurant.reviews.message || '',
           rate: restaurant.reviews.rate,
           date: getDate(),
           restaurant_id: restaurant.id
@@ -129,6 +134,8 @@
             restaurant.isWriteReview = true;
             break;
         }
+
+
 
         // $timeout(function () {
         //   if(!restaurant.isWriteReview || !restaurant.isReview){
