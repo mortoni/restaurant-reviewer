@@ -33,7 +33,7 @@
   </div>
 
   <div class="row">
-    <div class="card-container col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="restaurant in vm.restaurants">
+    <div class="card-container col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="restaurant in vm.restaurants | filter:vm.search">
       <div class="card">
         <div class="front bg-red lter">
           <!-- <div class="row"> -->
