@@ -80,32 +80,16 @@
                   <dl class="dl-horizontal text-sm">
                     <dt class="col-xs-3">Rating: </dt>
                     <dd class="text-lightred start-color col-xs-9">
-                      <i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
+                      <i class="fa fa-star" ng-repeat="stars in restaurant.stars"></i>
+                      <i class="fa fa-star-half-o" ng-repeat="halfStar in restaurant.halfStar"></i>
                     </dd>
                     <dt class="col-xs-3">Cuisine: </dt>
                     <dd class="col-xs-9">{{ restaurant.cuisine }}</dd>
                     <dt class="col-xs-12">Operating Hours: </dt>
                     <dd class="col-xs-12">
-                      <!-- <span class="label bg-red">Mon 8AM-9PM</span>
-                      <span class="label bg-cyan">Tue 4PM-12AM</span>
-                      <span class="label bg-greensea">Wed 4PM-12AM</span>
-                      <span class="label bg-primary">Thu 10AM-12AM</span>
-                      <span class="label bg-danger">Fri 10AM-12PM</span>
-                      <span class="label bg-info">Sat 10AM-12PM</span>
-                      <span class="label bg-drank">Sun 10AM-12PM</span> -->
-
                       <table ng-table="tableParams" class="table table-custom">
-
-                        <tr>
-                          <td>
-                            <span>Weekday: 4PM-12AM</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <span>Weekend: 8AM-12AM</span>
-                          </td>
-                        </tr>
+                        <tr><td><span>Weekday: 4PM-12AM</span></td></tr>
+                        <tr><td><span>Weekend: 8AM-12AM</span></td></tr>
                       </table>
                     </dd>
                   </dl>
@@ -167,7 +151,6 @@
 
           </div>
           <!-- /WRITEREVIEW -->
-
 
           <div class="row pull-down col-xs-12">
             <hr class="personalized">

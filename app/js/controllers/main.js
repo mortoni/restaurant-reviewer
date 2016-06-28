@@ -10,7 +10,7 @@
   angular.module('app').controller('MainCtrl', function ($scope, $http) {
 
     $scope.main = {
-      title: 'Minovate',
+      title: 'Food Review',
       settings: {
         navbarHeaderColor: 'scheme-cyan',
         sidebarColor: 'scheme-cyan',

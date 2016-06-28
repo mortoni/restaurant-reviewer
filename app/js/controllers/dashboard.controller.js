@@ -41,6 +41,21 @@
         }
       }
 
+      function calcStars(restaurant){
+        restaurant.stars = [];
+        restaurant.halfStar = [];
+        for (var i = 1; i < restaurant.rate; i++) {
+          restaurant.stars.push(i)
+        }
+
+        if(restaurant.rate % 1 != 0)
+          restaurant.halfStar.push(1);
+      }
+
+      function halfStart(){
+
+      }
+
       function calcRate(){
 
       }
@@ -72,7 +87,7 @@
       }
 
       function publishReview(restaurant){
-        var restaurant_rate = 5;
+        var restaurant_rate;
         var review = {
           userName: vm.user.name,
           userPhoto: vm.user.image,
@@ -85,10 +100,13 @@
         firebase.database().ref('reviews/').push(review);
 
         firebase.database().ref('restaurants/' + (restaurant.id - 1) + '/rate').on('value', function(snapshot) {
-          restaurant_rate = snapshot.val();
+          restaurant_rate = snapshot.val() || 5;
         });
 
-        firebase.database().ref('restaurants/' + (restaurant.id - 1) + '/rate').set((restaurant_rate + review.rate) * 0.5);
+        restaurant_rate = (restaurant_rate + review.rate) * 0.5;
+        restaurant.rate = restaurant_rate;
+
+        firebase.database().ref('restaurants/' + (restaurant.id - 1) + '/rate').set(restaurant_rate);
 
         restaurant.reviews.message = '';
         restaurant.reviews.rate = 0;
@@ -120,6 +138,7 @@
             restaurant.isDetails = true;
             restaurant.isReview = false;
             restaurant.isWriteReview = false;
+            calcStars(restaurant);
             break;
           case 'review':
             restaurant.isBackground = false;
