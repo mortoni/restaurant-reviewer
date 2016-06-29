@@ -12,11 +12,10 @@
       vm.user = {};
       vm.doLogin = doLogin;
       vm.doSignUp = doSignUp;
-
       activate();
 
       function activate() {
-
+        vm.header = true;
       }
 
       function doLogin(){
@@ -27,8 +26,8 @@
             image: user.photoURL,
             name: user.displayName,
           };
-
           Auth.setUser(currentUser);
+          vm.currentUser = Auth.getUser();
           $state.go('app.dashboard');
         }).catch(function(error) {
           showToast();
@@ -70,6 +69,7 @@
           };
 
           Auth.setUser(currentUser);
+          vm.currentUser = Auth.getUser();
           $state.go('app.dashboard');
         }, function(error) {
           //TODO manage error

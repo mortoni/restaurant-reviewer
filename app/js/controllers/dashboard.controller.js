@@ -44,7 +44,7 @@
       function calcStars(restaurant){
         restaurant.stars = [];
         restaurant.halfStar = [];
-        for (var i = 1; i < restaurant.rate; i++) {
+        for (var i = 0; i < Math.floor(restaurant.rate); i++) {
           restaurant.stars.push(i)
         }
 

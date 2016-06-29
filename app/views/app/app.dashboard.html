@@ -1,4 +1,4 @@
-<div class="page page-dashboard">
+<div class="page page-dashboard" ng-show="vm.user">
 
   <div class="hidden-md hidden-lg">
     <div id="sub-header">
@@ -11,8 +11,6 @@
     <div class="page-bar">
 
       <ul class="page-breadcrumb">
-        <li>
-        </li>
         <li>
           <div id="sub-header">
             <p>You won't upload a review without downloading <strong class="food-collor">food</strong>. Get to know where's your next stop.</p>
@@ -82,6 +80,7 @@
                     <dd class="text-lightred start-color col-xs-9">
                       <i class="fa fa-star" ng-repeat="stars in restaurant.stars"></i>
                       <i class="fa fa-star-half-o" ng-repeat="halfStar in restaurant.halfStar"></i>
+                      ({{restaurant.rate | limitTo : 3}})
                     </dd>
                     <dt class="col-xs-3">Cuisine: </dt>
                     <dd class="col-xs-9">{{ restaurant.cuisine }}</dd>

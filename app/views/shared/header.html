@@ -1,12 +1,12 @@
-<header class="clearfix header-collor">
-  <h3 class="text-light text-white text-center"><span class="text-lightred load-font">FOOD</span>REVIEW</h3>
+<header class="clearfix header-collor" ng-controller="DashboardCtrl as vm" ng-show="vm.user">
+  <h5 class="text-light text-white text-center col-xs-6" ><span class="text-lightred load-font">FOOD</span>REVIEW</h5>
 
-  <!-- <ul class="nav-right pull-right list-inline">
-    <li class="dropdown nav-profile" dropdown>
+  <ul class="col-xs-6 list-inline user-header">
+    <li class="dropdown nav-profile pull-right" dropdown>
 
         <a href class="dropdown-toggle" dropdown-toggle>
-          <img src="images/profile-photo.jpg" alt="" class="img-circle size-30x30">
-          <span>John Douey <fa name="angle-down"></fa></span>
+          <img ng-src="{{vm.user.image}}" alt="" class="img-circle size-30x30">
+          <span class="text-white">{{vm.user.name}} <fa name="angle-down"></fa></span>
         </a>
 
         <ul class="dropdown-menu animated littleFadeInRight" role="menu">
@@ -43,6 +43,6 @@
         </ul>
 
       </li>
-    </ul> -->
+    </ul>
 </header>
 <!-- <md-content class="md-padding" id="toastContainer"> -->
