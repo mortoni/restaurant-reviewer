@@ -3,9 +3,9 @@
 
     angular.module('app').controller('LoginCtrl', LoginCtrl);
 
-    LoginCtrl.$inject = ['$scope', '$state', 'Auth', 'gravatar'];
+    LoginCtrl.$inject = ['$scope', '$state', 'Auth', 'gravatar', '$mdToast', '$rootScope'];
 
-    function LoginCtrl($scope, $state, Auth, gravatar) {
+    function LoginCtrl($scope, $state, Auth, gravatar, $mdToast, $rootScope) {
       var vm = this;
 
       vm.newUser = {};
@@ -19,17 +19,6 @@
 
       }
 
-      // function createUser(){
-      //   firebase.auth().createUserWithEmailAndPassword(email, password)
-      //   .then(function(user) {
-      //     //TODO success message
-      //   }).catch(function(error) {
-      //     //TODO manage error
-      //     var errorCode = error.code;
-      //     var errorMessage = error.message;
-      //   });
-      // }
-
       function doLogin(){
         firebase.auth().signInWithEmailAndPassword(vm.user.email, vm.user.password)
         .then(function(user) {
@@ -42,17 +31,29 @@
           Auth.setUser(currentUser);
           $state.go('app.dashboard');
         }).catch(function(error) {
-          //TODO manage error
+          showToast();
           var errorCode = error.code;
-          var errorMessage = error.message;
+          $rootScope.errorMessage = error.message;
+        });
+      }
+
+      function showToast() {
+        $mdToast.show({
+          parent: angular.element(document.querySelector('#toastContainer')),
+          controller: 'ToastShowCtrl',
+          templateUrl: '../views/toast-template.html',
+          hideDelay: 6000,
         });
       }
 
       function createUser() {
         firebase.auth().createUserWithEmailAndPassword(vm.newUser.email, vm.newUser.password).catch(function(error) {
+          showToast();
           var errorCode = error.code;
-          var errorMessage = error.message;
+          $rootScope.errorMessage = error.message;
+          return false;
         });
+        return true;
       }
 
       function updateUser() {
@@ -86,8 +87,8 @@
       }
 
       function doSignUp(){
-        createUser();
-        updateUser();
+        if(createUser())
+          updateUser();
       }
     }
 })();
