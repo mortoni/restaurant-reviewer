@@ -156,14 +156,14 @@
 
 
 
-        // $timeout(function () {
-        //   if(!restaurant.isWriteReview || !restaurant.isReview){
-        //     restaurant.isBackground = true;
-        //     restaurant.isDetails = false;
-        //     restaurant.isReview = false;
-        //     restaurant.isWriteReview = false;
-        //   }
-        // }, 10000);
+        $timeout(function () {
+          if(!restaurant.isWriteReview || !restaurant.isReview){
+            restaurant.isBackground = true;
+            restaurant.isDetails = false;
+            restaurant.isReview = false;
+            restaurant.isWriteReview = false;
+          }
+        }, 10000);
       }
 
     }
