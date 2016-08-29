@@ -4,7 +4,7 @@
 
   return {
     restrict: 'E',
-    replace: true,
+    replace: false,
     templateUrl: '../views/spin-loader.html',
     link: function(scope, element) {
 
