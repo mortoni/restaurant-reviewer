@@ -10,7 +10,7 @@ gulp.task('default', function() {
 
 });
 
-gulp.task('server:dev', function() {
+gulp.task('serve', function() {
     browserSync.init({
         server: {
             baseDir: ["app"],
