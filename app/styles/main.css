@@ -461,7 +461,7 @@ html.boxed-layout {
   .appWrapper.rtl dd {
     margin-right: 0;
     margin-left: initial; }
-  @media (min-width: 768px) {
+  @media (min-width: 1px) {
     .appWrapper.rtl .dl-horizontal dt {
       float: right;
       clear: right;
@@ -9241,6 +9241,7 @@ input[type="text"].ui-grid-filter-input {
       -o-transform: rotateY(180deg);
       transform: rotateY(180deg); }
     .card-container .card:hover .back {
+      opacity: 1.5;
       z-index: 12;
       -webkit-transform: rotateX(0deg) rotateY(0deg);
       -moz-transform: rotateX(0deg) rotateY(0deg);
@@ -9248,6 +9249,7 @@ input[type="text"].ui-grid-filter-input {
       -o-transform: rotateX(0deg) rotateY(0deg);
       transform: rotateX(0deg) rotateY(0deg); }
     .card-container .card .back {
+      opacity: -0.5;
       position: absolute;
       top: 0;
       border: 0;
@@ -11024,7 +11026,7 @@ body {
   color: #418bca; }
 
 .text-lightred {
-  color: #e05d6f; }
+  color: #6de8d2; }
 
 .text-slategray {
   color: #3f4e62; }

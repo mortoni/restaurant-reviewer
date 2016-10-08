@@ -62,7 +62,7 @@
 }
 
 .food-collor{
-  color: #e05d6f;
+  color: #6de8d2;
 }
 
 .hr-personal{
@@ -117,7 +117,8 @@
 }
 
 .no-collor{
-  background-color: rgba(0, 0, 0, 0.00) !important; }
+  background-color: rgba(0, 0, 0, 0.00) !important;
+}
 
 .card-back-div, .review-content{
   padding: 5px;
@@ -134,4 +135,8 @@
 
 .user-header{
   margin-top: 10px;
+}
+
+.text-white{
+  color: white !important;
 }
