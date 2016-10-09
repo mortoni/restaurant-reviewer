@@ -12,7 +12,7 @@
     <div class="col-xs-12">
       <div layout layout-sm="column" class="col-xs-offset-1 col-md-offset-4 col-xs-10 col-md-5 text-center" tabindex="1">
         <md-input-container flex>
-          <label>What are you looking for?</label>
+          <label class="pla-ho-collor">What are you looking for?</label>
           <input ng-model="vm.search">
         </md-input-container>
       </div>
@@ -100,7 +100,7 @@
 
                     </div>
                     <div class="media-body">
-                      <p class="media-heading"><a href="#" class="name">{{ review.userName }}</a><strong> at {{ review.date }}</strong></p>
+                      <p class="media-heading"><a href="#" class="name user-name">{{ review.userName }}</a><strong> at {{ review.date }}</strong></p>
                       <span class="body">{{ review.review }}</span>
                     </div>
                   </div>
@@ -115,9 +115,9 @@
           <div ng-show="restaurant.isWriteReview" class="card-back-div">
 
             <div class="form-group">
+              <label>How was your experience at <strong class="chef-label">{{restaurant.name}}</strong></label>
               <textarea class="form-control"
-                        rows="3"
-                        placeholder="How was your experience at {{restaurant.name}}"
+                        rows="5"
                         ng-model="restaurant.reviews.message"
                         maxlength="100">
               </textarea>

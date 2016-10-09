@@ -58,11 +58,11 @@
 }
 
 .header-collor{
-  background-color: #616f77;
+  background-color: #495c66;
 }
 
 .food-collor{
-  color: #6de8d2;
+  color: #008247
 }
 
 .hr-personal{
@@ -110,7 +110,7 @@
   margin-top: 5px;
   margin-bottom: 0px;
   border: 0;
-  border-top: 2px solid #ffc100;
+  border-top: 2px solid #FFFF00;
 }
 .img-responsive, .center{
   margin: 0 auto;
@@ -125,7 +125,7 @@
 }
 
 .chef-label, .start-color {
-  color: #ffc100;
+  color: #FFFF00
 }
 
 .pull-down {
@@ -139,4 +139,20 @@
 
 .text-white{
   color: white !important;
+}
+
+.pla-ho-collor{
+  color: #666a6c;
+}
+
+.text-orange {
+    color: #FFFF00 !important;
+}
+
+.user-name{
+  color: white !important;
+}
+
+.bg-red.lter {
+    background-color: #707070 !important;
 }

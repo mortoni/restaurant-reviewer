@@ -35,7 +35,7 @@ gulp.task('serve', function() {
     });
 });
 
-gulp.task('server:dist', function() {
+gulp.task('test', function() {
     browserSync.init({
         server: {
             baseDir: ["dist"],
@@ -47,12 +47,16 @@ gulp.task('server:dist', function() {
 });
 
 gulp.task('minify-css', function() {
-  return gulp.src(['bower_components/font-awesome/css/font-awesome.min.css',
+  return gulp.src(['bower_components/normalize-css/normalize.css',
+                   'bower_components/angular-material/angular-material.min.css',
                    'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                   'bower_components/animate.css/animate.css',
+                   'bower_components/font-awesome/css/font-awesome.min.css',
+                   'bower_components/angular-ui-select/dist/select.min.css',
                    'app/styles/main.css',
                    'app/styles/layout.css',
                    'app/styles/spin-loader.css'])
-    .pipe(concatCss('styles-1.0.0.min.css'))
+    .pipe(concatCss('styles-1.0.2.min.css'))
     .pipe(cleanCSS())
     .pipe(gulp.dest('dist/css'));
 
@@ -75,14 +79,29 @@ gulp.task('compress', function() {
                   'app/js/controllers/*.js',
                   'app/js/directives/*.js',
                   'app/js/services/*.js'])
-    .pipe(concat('scripts-1.0.0.min.js'))
+    .pipe(concat('scripts-1.0.1.min.js'))
     .pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('pages', function() {
   gulp.src(['app/views/**/*'])
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('dist/pages'));
+    .pipe(gulp.dest('dist/views'));
 });
 
-gulp.task('dist', ['minify-css', 'compress', 'pages']);
+gulp.task('images', function() {
+  gulp.src(['app/images/**/*'])
+      .pipe(gulp.dest('dist/images'));
+});
+
+gulp.task('bootstrap', function() {
+  gulp.src(['bower_components/bootstrap/dist/fonts/**/*'])
+      .pipe(gulp.dest('dist/bootstrap/dist/fonts'));
+});
+
+gulp.task('fonts', function() {
+  gulp.src(['bower_components/font-awesome/fonts/**/*'])
+      .pipe(gulp.dest('dist/font-awesome/fonts'));
+});
+
+gulp.task('build', ['minify-css', 'compress', 'pages', 'images', 'bootstrap', 'fonts']);
