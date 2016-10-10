@@ -7,7 +7,7 @@ Public Transportation App, Project 3 from Udacity Senior Web Developer Nanodegre
 > Udacity
 
 ##[Demo]()  
-You can see a demo [here]().  
+You can see a demo [here](https://udacitythree.firebaseapp.com/#/core/login).  
 
 ### Mobile  
 <!-- <img src="https://raw.githubusercontent.com/mortoni/LA-train/master/app/images/demo1.png" width="393" height="800" />   -->
@@ -43,17 +43,17 @@ $ bower install
 
 - Running server:  
 ```{r, engine='bash', count_lines}
-$ npm run gulp server:dev
+$ gulp server
 ```
 ###Distribution Server  
 - Generate distribution:  
 ```{r, engine='bash', count_lines}
-$ gulp dist
+$ gulp build
 ```
 
 - Running server:  
 ```{r, engine='bash', count_lines}
-$ npm run gulp server:dist
+$ gulp test
 ```
 
 ##Features  
