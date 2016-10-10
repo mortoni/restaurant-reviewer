@@ -1,7 +1,12 @@
 bower_components
 node_modules
 npm-debug.log
-dist
+dist/bootstrap
+dist/css
+dist/font-awesome
+dist/images
+dist/views
+dist/js
 database.rules.json
 firebase.json
 .firebaserc

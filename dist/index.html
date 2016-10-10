@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="app" ng-controller="MainCtrl" class="no-js {{containerClass}}">
+  <head>
+    <meta charset="utf-8">
+    <title>Food Review</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link rel="icon" type="image/ico" href="favicon.ico" />
+
+    <link rel="stylesheet" href="css/styles-1.0.3.min.css">
+    <base href="/">
+  </head>
+  <body id="minovate" class="{{main.settings.navbarHeaderColor}} {{main.settings.activeColor}} {{containerClass}} header-fixed aside-fixed rightbar-hidden appWrapper" ng-class="{'header-fixed': main.settings.headerFixed, 'header-static': !main.settings.headerFixed, 'aside-fixed': main.settings.asideFixed, 'aside-static': !main.settings.asideFixed, 'rightbar-show': main.settings.rightbarShow, 'rightbar-hidden': !main.settings.rightbarShow}">
+
+    <!-- Application content -->
+    <resolve-loader></resolve-loader>
+    <div id="wrap" ui-view autoscroll="false"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+    <script src="js/scripts-1.0.2.min.js"></script>
+
+</body>
+</html>
