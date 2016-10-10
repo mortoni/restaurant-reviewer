@@ -10,9 +10,13 @@ Public Transportation App, Project 3 from Udacity Senior Web Developer Nanodegre
 You can see a demo [here](https://udacitythree.firebaseapp.com/#/core/login).  
 
 ### Mobile  
-<!-- <img src="https://raw.githubusercontent.com/mortoni/LA-train/master/app/images/demo1.png" width="393" height="800" />   -->
+<img src="https://raw.githubusercontent.com/mortoni/restaurant-reviewer/master/app/images/udacity3-1.png" width="393" height="800" />  
+
+<img src="https://raw.githubusercontent.com/mortoni/restaurant-reviewer/master/app/images/udacity3-2.png" width="393" height="800" />
+
+<img src="https://raw.githubusercontent.com/mortoni/restaurant-reviewer/master/app/images/udacity3-3.png" width="393" height="800" />
 ### Desktop  
-<!-- ![image](https://raw.githubusercontent.com/mortoni/LA-train/master/app/images/demo2.png)   -->
+![image](https://raw.githubusercontent.com/mortoni/restaurant-reviewer/master/app/images/udacity-desktop.png)  
 
 ##Technologies
 [AngularJS](https://angularjs.org/)  
