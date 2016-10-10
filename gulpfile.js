@@ -56,7 +56,7 @@ gulp.task('minify-css', function() {
                    'app/styles/main.css',
                    'app/styles/layout.css',
                    'app/styles/spin-loader.css'])
-    .pipe(concatCss('styles-1.0.2.min.css'))
+    .pipe(concatCss('styles-1.0.3.min.css'))
     .pipe(cleanCSS())
     .pipe(gulp.dest('dist/css'));
 
@@ -79,7 +79,7 @@ gulp.task('compress', function() {
                   'app/js/controllers/*.js',
                   'app/js/directives/*.js',
                   'app/js/services/*.js'])
-    .pipe(concat('scripts-1.0.1.min.js'))
+    .pipe(concat('scripts-1.0.2.min.js'))
     .pipe(gulp.dest('dist/js'));
 });
 
