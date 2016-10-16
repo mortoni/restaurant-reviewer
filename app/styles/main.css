@@ -9232,7 +9232,7 @@ input[type="text"].ui-grid-filter-input {
       -webkit-transition: all 0.4s ease-in-out;
       -moz-transition: all 0.4s ease-in-out;
       transition: all 0.4s ease-in-out; }
-    .card-container .card:hover .front, .card-container .card .front:focus  {
+    .card-container .card:hover .front{
       min-height: 110px;
       z-index: 11;
       -webkit-transform: rotateY(180deg);
@@ -9240,7 +9240,7 @@ input[type="text"].ui-grid-filter-input {
       -ms-transform: rotateY(180deg);
       -o-transform: rotateY(180deg);
       transform: rotateY(180deg); }
-    .card-container .card:hover .back {
+    .card-container .card:hover .back{
       opacity: 1.5;
       z-index: 12;
       -webkit-transform: rotateX(0deg) rotateY(0deg);
