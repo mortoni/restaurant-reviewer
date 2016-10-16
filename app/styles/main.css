@@ -9232,7 +9232,7 @@ input[type="text"].ui-grid-filter-input {
       -webkit-transition: all 0.4s ease-in-out;
       -moz-transition: all 0.4s ease-in-out;
       transition: all 0.4s ease-in-out; }
-    .card-container .card:hover .front {
+    .card-container .card:hover .front, .card-container .card .front:focus  {
       min-height: 110px;
       z-index: 11;
       -webkit-transform: rotateY(180deg);

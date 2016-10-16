@@ -1,7 +1,7 @@
 <div class="page page-dashboard" ng-show="vm.user" tabindex="0">
   <br>
   <div class="col-xs-12">
-    <div id="sub-header">
+    <div id="sub-header" role="heading">
       <p>I won't be Impressed with tecnology until I can donwload <strong class="food-collor">FOOD.</strong></p>
     </div>
   </div>
@@ -10,7 +10,10 @@
 
   <div class="row">
     <div class="col-xs-12">
-      <div layout layout-sm="column" class="col-xs-offset-1 col-md-offset-4 col-xs-10 col-md-5 text-center" tabindex="1">
+      <div layout layout-sm="column"
+           class="col-xs-offset-1 col-md-offset-4 col-xs-10 col-md-5 text-center"
+           tabindex="0"
+           role="search">
         <md-input-container flex>
           <label class="pla-ho-collor">What are you looking for?</label>
           <input ng-model="vm.search">
@@ -19,10 +22,15 @@
     </div>
 
 
-    <div class="card-container col-lg-3 col-md-4 col-sm-6 col-xs-12" ng-repeat="restaurant in vm.restaurants| filter:vm.search" tabindex="{{$index+1}}">
+    <div class="card-container col-lg-3 col-md-4 col-sm-6 col-xs-12"
+         ng-repeat="restaurant in vm.restaurants| filter:vm.search"
+         role="list">
       <div class="card">
-        <div class="front bg-tr-black lt">
-            <img class="img-responsive center" ng-src="../images/{{restaurant.image}}" alt="{{restaurant.alt}}" title="{{restaurant.alt}}"/>
+        <div class="front bg-tr-black lt" tabindex="0">
+            <img class="img-responsive center"
+                 ng-src="../images/{{restaurant.image}}"
+                 alt="{{restaurant.alt}}"
+                 title="{{restaurant.alt}}"/>
             <div class="card-footer">
               <ul>
                 <li class="lead">{{ restaurant.name }}</li>
@@ -34,13 +42,56 @@
           <!-- BACKGROUND -->
           <div ng-show="restaurant.isBackground">
             <div class="rating-stars text-center">
-              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="-1" title="one"></i>
-              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="-1" title="one"></i>
-              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="-1" title="one"></i>
-              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="-1" title="one"></i>
-              <i ng-mouseenter="enter($index + 1)" ng-click="rate($index + 1)" class="glyphicon ng-scope fa fa-star text-orange text-lg" ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')" ng-attr-title="{{r.title}}" role="button" tabindex="-1" title="one"></i>
+              <i ng-mouseenter="enter($index + 1)"
+                 ng-click="rate($index + 1)"
+                 class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                 ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                 ng-attr-title="{{r.title}}"
+                 role="button"
+                 tabindex="-1"
+                 title="one">
+              </i>
+              <i ng-mouseenter="enter($index + 1)"
+                 ng-click="rate($index + 1)"
+                 class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                 ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                 ng-attr-title="{{r.title}}"
+                 role="button"
+                 tabindex="-1"
+                 title="one">
+              </i>
+              <i ng-mouseenter="enter($index + 1)"
+                 ng-click="rate($index + 1)"
+                 class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                 ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                 ng-attr-title="{{r.title}}"
+                 role="button"
+                 tabindex="-1"
+                 title="one">
+              </i>
+              <i ng-mouseenter="enter($index + 1)"
+                 ng-click="rate($index + 1)"
+                 class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                 ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                 ng-attr-title="{{r.title}}"
+                 role="button"
+                 tabindex="-1"
+                 title="one">
+              </i>
+              <i ng-mouseenter="enter($index + 1)"
+                 ng-click="rate($index + 1)"
+                 class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                 ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                 ng-attr-title="{{r.title}}"
+                 role="button"
+                 tabindex="-1"
+                 title="one">
+              </i>
             </div>
-            <img class="img-responsive text-center" ng-src="../images/{{restaurant.background}}" alt="{{restaurant.alt}}" title="{{restaurant.alt}}" />
+            <img class="img-responsive text-center"
+                 ng-src="../images/{{restaurant.background}}"
+                 alt="{{restaurant.alt}}"
+                 title="{{restaurant.alt}}"/>
           </div>
 
           <!-- DETAILS -->
@@ -51,7 +102,10 @@
                 <div class="col-xs-12">
                   <div class="media mb-20">
                     <div class="pull-left thumb">
-                      <img class="media-object img-circle" ng-src="../images/{{restaurant.image}}" alt="{{restaurant.alt}}" title="{{restaurant.alt}}">
+                      <img class="media-object img-circle"
+                           ng-src="../images/{{restaurant.image}}"
+                           alt="{{restaurant.alt}}"
+                           title="{{restaurant.alt}}"/>
                     </div>
                     <div class="media-body">
                       <h4 class="media-heading mb-0">{{ restaurant.name }}</h4>
@@ -94,10 +148,7 @@
 
                   <div class="media">
                     <div ng-class="{'pull-left': $index % 2 == 0 , 'pull-right': $index % 2 != 0}" class="thumb thumb-sm">
-
-                      <!-- <i class="fa fa-user fa-2x" aria-hidden="true"></i> -->
-                      <img class="media-object img-circle" ng-src="{{review.userPhoto}}" alt="">
-
+                      <img class="media-object img-circle" ng-src="{{review.userPhoto}}" alt="User Photo">
                     </div>
                     <div class="media-body">
                       <p class="media-heading"><a href="#" class="name user-name">{{ review.userName }}</a><strong> at {{ review.date }}</strong></p>

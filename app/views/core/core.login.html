@@ -1,38 +1,46 @@
-<div class="page page-core page-login" id="toastContainer">
+<div class="page page-core page-login" id="toastContainer" role="application">
 <!-- <md-content class="md-padding" id="toastContainer"> -->
-  <div class="text-center" tabindex="1">
+  <div class="text-center">
     <h3 class="text-light text-white">
-      <span class="text-lightred load-font">FOOD</span>REVIEW
+      <span class="text-lightred load-font" tabindex="0">FOOD</span>REVIEW
     </h3>
   </div>
 
-  <div class="container w-420 p-15 bg-white mt-40 text-center" tabindex="2">
-
-
+  <div class="container w-420 p-15 bg-white mt-40 text-center">
     <h2 class="text-light text-greensea">Log In</h2>
 
-    <form name="form" class="form-validation mt-20" novalidate>
-
+    <form name="form" class="form-validation mt-20" novalidate role="form">
       <div class="form-group">
-        <input type="email" class="form-control underline-input" placeholder="Email" ng-model="vm.user.email" required tabindex="3">
+        <input type="email"
+               class="form-control underline-input"
+               placeholder="Email"
+               ng-model="vm.user.email"
+               tabindex="0"
+               required>
       </div>
 
       <div class="form-group">
-        <input type="password" placeholder="Password" class="form-control underline-input" ng-model="vm.user.password" required tabindex="4">
+        <input type="password"
+               placeholder="Password"
+               class="form-control underline-input"
+               ng-model="vm.user.password"
+               tabindex="0"
+               required>
       </div>
 
       <div class="form-group text-left mt-20">
-        <button type="submit" class="btn btn-greensea b-0 br-2 mr-5" ng-click="vm.doLogin()" ng-disabled='form.$invalid' tabindex="5">Login</button>
+        <button type="submit"
+                class="btn btn-greensea b-0 br-2 mr-5"
+                ng-click="vm.doLogin()"
+                ng-disabled='form.$invalid'
+                tabindex="0">Login</button>
       </div>
     </form>
 
-
     <div class="bg-slategray lt wrap-reset mt-40">
       <p class="m-0">
-        <a ui-sref="core.signup" class="text-uppercase text-white" tabindex="6">Create an account</a>
+        <a ui-sref="core.signup" class="text-uppercase text-white" tabindex="0">Create an account</a>
       </p>
     </div>
-
   </div>
-
 </div>
