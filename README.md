@@ -44,7 +44,7 @@ $ bower install
 
 - Running server:  
 ```{r, engine='bash', count_lines}
-$ gulp server
+$ gulp serve
 ```
 ###Distribution Server  
 - Generate distribution:  
