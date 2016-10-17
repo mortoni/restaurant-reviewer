@@ -16,6 +16,7 @@
       vm.writeReview = writeReview;
       vm.publishReview = publishReview;
       vm.calcRate = calcRate;
+      vm.turnCard = turnCard;
 
       activate();
 
@@ -155,7 +156,6 @@
         }
 
 
-
         // $timeout(function () {
         //   if(!restaurant.isWriteReview || !restaurant.isReview){
         //     restaurant.isBackground = true;
@@ -164,6 +164,12 @@
         //     restaurant.isWriteReview = false;
         //   }
         // }, 10000);
+      }
+
+      function turnCard() {
+        console.log('oie');
+        var test = $scope.class;
+        vm.hover = true;
       }
 
     }
