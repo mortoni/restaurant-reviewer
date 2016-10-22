@@ -25,7 +25,7 @@
          ng-repeat="restaurant in vm.restaurants| filter:vm.search"
          role="list">
       <!-- <div class="card" ng-class="{'card:hover': vm.hover}" tabindex="0" my-enter="vm.turnCard()"> -->
-      <div class="card" tabindex="0" aria-label="restaurant {{restaurant.name}}">
+      <div class="card" tabindex="0" aria-label="press enter to see details of {{restaurant.name}} restaurant" ng-keypress="vm.turnCard($event)">
         <div class="front bg-tr-black lt">
             <img class="img-responsive center"
                  ng-src="../images/{{restaurant.image}}"
@@ -183,7 +183,8 @@
               </div>
               <button class="btn btn-cyan btn-ef"
                       ng-click="vm.publishReview(restaurant)"
-                      ng-disabled="!restaurant.reviews.rate"> Publish
+                      ng-disabled="!restaurant.reviews.rate"
+                      tabindex="0"> Publish
               </button>
             </div>
 

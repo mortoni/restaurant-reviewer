@@ -9232,6 +9232,29 @@ input[type="text"].ui-grid-filter-input {
       -webkit-transition: all 0.4s ease-in-out;
       -moz-transition: all 0.4s ease-in-out;
       transition: all 0.4s ease-in-out; }
+
+
+
+      /*.card-container .test .front{
+        min-height: 110px;
+        z-index: 11;
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg); }
+      .card-container .test .back{
+        opacity: 1.5;
+        z-index: 12;
+        -webkit-transform: rotateX(0deg) rotateY(0deg);
+        -moz-transform: rotateX(0deg) rotateY(0deg);
+        -ms-transform: rotateX(0deg) rotateY(0deg);
+        -o-transform: rotateX(0deg) rotateY(0deg);
+        transform: rotateX(0deg) rotateY(0deg); }*/
+
+
+
+
     .card-container .card:hover .front{
       min-height: 110px;
       z-index: 11;

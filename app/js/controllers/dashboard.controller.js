@@ -3,9 +3,9 @@
 
   angular.module('app').controller('DashboardCtrl', DashboardCtrl);
 
-    DashboardCtrl.$inject = ['$scope', '$rootScope', '$timeout', '$mdToast', '$q', 'Auth', 'restSrv'];
+    DashboardCtrl.$inject = ['$scope', '$rootScope', '$timeout', '$mdToast', '$q', 'Auth', 'restSrv', '$window'];
 
-    function DashboardCtrl($scope, $rootScope, $timeout, $mdToast, $q, Auth, restSrv){
+    function DashboardCtrl($scope, $rootScope, $timeout, $mdToast, $q, Auth, restSrv, $window){
       var vm = this;
 
       $rootScope.dashboard = true;
@@ -166,10 +166,11 @@
         // }, 10000);
       }
 
-      function turnCard() {
-        console.log('oie');
-        var test = $scope.class;
-        vm.hover = true;
+      function turnCard(event) {
+        if (event.keyCode === 13) {
+          console.log('Enter key pressed');
+          $(event.target).addClass('test');
+        }
       }
 
     }
