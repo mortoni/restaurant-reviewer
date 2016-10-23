@@ -4,6 +4,9 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     concat = require('gulp-concat'),
     htmlmin = require('gulp-htmlmin'),
+    uglify = require("gulp-uglify"),
+    rename = require("gulp-rename"),
+    ngmin = require('gulp-ngmin'),
     browserSync = require('browser-sync');
 
 gulp.task('default', function() {
@@ -56,8 +59,8 @@ gulp.task('minify-css', function() {
                    'app/styles/main.css',
                    'app/styles/layout.css',
                    'app/styles/spin-loader.css'])
-    .pipe(concatCss('styles-1.0.3.min.css'))
-    .pipe(cleanCSS())
+    .pipe(concatCss('styles-1.0.4.min.css'))
+    .pipe(cleanCSS({ keepSpecialComments: 1, processImport: false }))
     .pipe(gulp.dest('dist/css'));
 
 });
@@ -79,8 +82,27 @@ gulp.task('compress', function() {
                   'app/js/controllers/*.js',
                   'app/js/directives/*.js',
                   'app/js/services/*.js'])
-    .pipe(concat('scripts-1.0.2.min.js'))
+    // .pipe(concat('scripts-1.0.4.min.js'))
+    // .pipe(ngmin())
+    // .pipe(gulp.dest('dist/js'));
+
+
+
+
+
+
+    .pipe(concat('scripts-1.0.4.js'))
+    .pipe(ngmin())
+    .pipe(gulp.dest('dist/js'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify({mangle: false}))
     .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('minify-js', function () {
+    gulp.src('./JavaScript/*.js') // path to your files
+    .pipe(uglify())
+    .pipe(gulp.dest('path/to/destination'));
 });
 
 gulp.task('pages', function() {

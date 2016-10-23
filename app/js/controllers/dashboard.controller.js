@@ -17,6 +17,7 @@
       vm.publishReview = publishReview;
       vm.calcRate = calcRate;
       vm.turnCard = turnCard;
+      vm.testinho = false;
 
       activate();
 

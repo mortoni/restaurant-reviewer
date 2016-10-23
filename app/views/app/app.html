@@ -1,7 +1,7 @@
 <div ng-show="dashboard">
   <section ng-include="'views/shared/header.html'" id="header" class="{{main.settings.navbarHeaderColor}}"></section>
 
-  <div class="view-container" ui-view-container>
+  <div class="view-container" ui-view-container role="main">
     <section ui-view id="content" autoscroll="false"></section>
   </div>
 </div>
