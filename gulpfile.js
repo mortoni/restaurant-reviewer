@@ -10,7 +10,12 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync');
 
 gulp.task('default', function() {
-
+  console.log( "\n Restaurant Reviewer - Gulp Command List \n" );
+  console.log( "-------------------------------------------\n" );
+  console.log( "gulp serve - start serve on port 3000." );
+  console.log( "gulp test  - test dist folder application." );
+  console.log( "gulp build - build dist folder\n" );
+  console.log( "-------------------------------------------\n" );
 });
 
 gulp.task('serve', function() {

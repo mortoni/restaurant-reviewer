@@ -9243,8 +9243,11 @@ input[type="text"].ui-grid-filter-input {
           -ms-transform: rotateY(180deg);
           -o-transform: rotateY(180deg);
           transform: rotateY(180deg); }
-          /*.card-container .card .back > .row > div a:focus,*/
-          .card-container .card:focus .back{
+
+          .card-container .card:focus .back,
+          .card-container .card .back:focus,
+          .card-container .card .back > .row > div a:focus
+          {
           opacity: 1.5;
           z-index: 12;
           -webkit-transform: rotateX(0deg) rotateY(0deg);

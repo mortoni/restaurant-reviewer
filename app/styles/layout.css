@@ -107,10 +107,11 @@
 }
 
 .personalized, hr{
-  margin-top: 5px;
-  margin-bottom: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: 0;
-  border-top: 2px solid #FFFF00;
+  border-top: 2px solid #6ce4cf;
+  margin-left: 25px;
 }
 .img-responsive, .center{
   margin: 0 auto;
@@ -118,6 +119,7 @@
 
 .no-collor{
   background-color: rgba(0, 0, 0, 0.00) !important;
+  color: white;
 }
 
 .card-back-div, .review-content{
@@ -146,7 +148,7 @@
 }
 
 .text-orange {
-    color: #FFFF00 !important;
+    color: #6ce4cf !important;
 }
 
 .user-name{
@@ -155,4 +157,29 @@
 
 .bg-red.lter {
     background-color: #707070 !important;
+}
+
+.card {
+  margin: 0px 0px 10px 0px;
+}
+
+.card .content{
+  margin: 10px 15px 0px 0px;
+}
+
+.card .content .body{}
+.card .content .footer{}
+
+.card .content .footer div a:hover{
+  color: white !important;
+}
+
+
+.card .back {
+  background-color: #707070;
+}
+
+.card .front {
+  background-color: #707070;
+  color: yellow;
 }

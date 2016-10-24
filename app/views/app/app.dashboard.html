@@ -18,10 +18,114 @@
       </div>
     </div>
 
-    <div class="card-container col-lg-3 col-md-4 col-sm-6 col-xs-12"
+    <flip flip-height="350px" ng-repeat="restaurant in vm.restaurants" class="col-xs-12 card" tabindex="0">
+      <flip-panel class="front">
+        <div class="content">
+
+          <img class="img-responsive center"
+               ng-src="../images/{{restaurant.image}}"
+               alt="{{restaurant.alt}}"
+               title="{{restaurant.alt}}"/>
+
+          <div class="card-footer">
+            <ul>
+              <li class="lead">{{ restaurant.name }}</li>
+              <li class="strap">{{ restaurant.country }}</li>
+            </ul>
+          </div>
+
+        </div>
+      </flip-panel>
+      <flip-panel class="back">
+        <div class="content">
+          <div class="body">
+            <div ng-show="restaurant.isBackground">
+              <div class="rating-stars text-center">
+                <i ng-mouseenter="enter($index + 1)"
+                   ng-click="rate($index + 1)"
+                   class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                   ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                   ng-attr-title="{{r.title}}"
+                   role="button"
+                   tabindex="-1"
+                   title="one">
+                </i>
+                <i ng-mouseenter="enter($index + 1)"
+                   ng-click="rate($index + 1)"
+                   class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                   ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                   ng-attr-title="{{r.title}}"
+                   role="button"
+                   tabindex="-1"
+                   title="one">
+                </i>
+                <i ng-mouseenter="enter($index + 1)"
+                   ng-click="rate($index + 1)"
+                   class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                   ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                   ng-attr-title="{{r.title}}"
+                   role="button"
+                   tabindex="-1"
+                   title="one">
+                </i>
+                <i ng-mouseenter="enter($index + 1)"
+                   ng-click="rate($index + 1)"
+                   class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                   ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                   ng-attr-title="{{r.title}}"
+                   role="button"
+                   tabindex="-1"
+                   title="one">
+                </i>
+                <i ng-mouseenter="enter($index + 1)"
+                   ng-click="rate($index + 1)"
+                   class="glyphicon ng-scope fa fa-star text-orange text-lg"
+                   ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+                   ng-attr-title="{{r.title}}"
+                   role="button"
+                   tabindex="-1"
+                   title="one">
+                </i>
+              </div>
+              <img class="img-responsive text-center"
+                   ng-src="../images/{{restaurant.background}}"
+                   alt="{{restaurant.alt}}"
+                   title="{{restaurant.alt}}"/>
+            </div>
+            <!-- content -->
+            <!-- /content -->
+
+
+            <!-- footer -->
+            <div class="row text-center col-xs-12 footer">
+              <hr class="personalized">
+              <div class="col-xs-4">
+                <a href=javascript:; class="no-collor" ng-click="vm.details(restaurant)" tabindex="0" style="text-decoration: none;">
+                  <i class="fa fa-asterisk fa-2x" aria-hidden="true"></i> Details
+                </a>
+              </div>
+              <div class="col-xs-4">
+                <a href=javascript:; class="no-collor" ng-click="vm.reviews(restaurant)" tabindex="0" style="text-decoration: none;">
+                  <i class="fa fa-bars fa-2x" aria-hidden="true"></i> Reviews
+                </a>
+              </div>
+              <div class="col-xs-4">
+                <a href=javascript:; class="no-collor" ng-click="vm.writeReview(restaurant)" tabindex="0" style="text-decoration: none;">
+                  <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Write review
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </flip-panel>
+    </flip>
+
+    <!-- <div class="card" ng-class="{'card:hover': vm.hover}" tabindex="0" my-enter="vm.turnCard()"> -->
+
+
+    <!-- <div class="card-container col-lg-3 col-md-4 col-sm-6 col-xs-12"
          ng-repeat="restaurant in vm.restaurants| filter:vm.search"
          role="list">
-      <!-- <div class="card" ng-class="{'card:hover': vm.hover}" tabindex="0" my-enter="vm.turnCard()"> -->
       <div class="card" tabindex="0" aria-label="press enter to see details of {{restaurant.name}} restaurant" ng-keypress="vm.turnCard($event)">
         <div class="front bg-tr-black lt">
             <img class="img-responsive center"
@@ -35,8 +139,8 @@
               </ul>
             </div>
         </div>
-        <div class="back bg-red lter">
-          <!-- BACKGROUND -->
+        <div class="back bg-red lter test" tabindex="0">
+
           <div ng-show="restaurant.isBackground">
             <div class="rating-stars text-center">
               <i ng-mouseenter="enter($index + 1)"
@@ -91,7 +195,6 @@
                  title="{{restaurant.alt}}"/>
           </div>
 
-          <!-- DETAILS -->
           <div ng-show="restaurant.isDetails" class="card-back-div">
 
             <div class="tile-widget">
@@ -134,9 +237,7 @@
             </div>
 
           </div>
-          <!-- /DETAILS -->
 
-          <!-- REVIEWS-->
           <div ng-show="restaurant.isReview" class="card-back-div">
 
             <div class="tile-body review-content" style="max-height: 215px;overflow:auto;" slimscroll="{height: '100%'}">
@@ -157,9 +258,7 @@
 
             </div>
           </div>
-          <!-- /REVIEWS -->
 
-          <!-- WRITEREVIEW -->
           <div ng-show="restaurant.isWriteReview" class="card-back-div">
 
             <div class="form-group">
@@ -186,7 +285,6 @@
             </div>
 
           </div>
-          <!-- /WRITEREVIEW -->
 
           <div class="row pull-down col-xs-12">
             <hr class="personalized">
@@ -208,6 +306,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>

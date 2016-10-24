@@ -174,6 +174,14 @@
         }
       }
 
+      // $('.card-container .card .back > .row > div a')
+      // .focus(function() {
+      //     $('.card').addClass('testinho');
+      // })
+      // .blur(function() {
+      //     $('.card').removeClass('testinho');
+      // });
+
     }
 
 })();
