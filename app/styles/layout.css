@@ -214,21 +214,6 @@
     top: 52px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .card .content .body{}
 .card .content .footer{}
 
@@ -252,4 +237,41 @@
 
 .visible{
   visibility: visible;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .card {
+    margin: 0px 0px 10px 0px;
+    padding-left: 0px;
+    height: 65px;
+    margin-bottom: 55px;
+    margin-left: -20px;
+  }
+
+  .card:first-child{
+    margin-top: 40px;
+  }
+
+  .card .content img{
+    height: 100px;
+    margin-top: -55px;
+  }
+
+  .card-footer{
+    height: 63px;
+    left: 0px;
+    border-top-left-radius: 0px;
+    text-align: -webkit-right;
+    background: rgba(0,0,0,0.0);
+  }
+  .card:hover .card-footer ul li.lead,
+  .card-footer ul li.lead {
+    border-bottom: 0px solid #FFF;
+  }
+}
+
+#card-footer{
+  position: absolute;
+  bottom: 82px;
+  width: 100%;
 }

@@ -1,0 +1,24 @@
+<div ng-show="vm.selected.writeReview" class="card-back-div">
+
+  <label >How was your experience at <strong class="chef-label">{{vm.selected.name}}</strong></label>
+  <textarea class="form-control write-first"
+            rows="5"
+            ng-model="vm.selected.reviews.message"
+            maxlength="100"
+            aria-label="How was your experience at {{vm.selected.name}}"
+            tabindex="0">
+  </textarea>
+
+  <div class="text-center">
+    <div ng-init="x = 0" class="mb-10">
+      <rating ng-model="vm.selected.reviews.rate" max="5" state-on="'fa fa-star text-orange text-lg'" state-off="'fa fa-star-o text-lg'" tabindex="0" aria-label="How many stars for {{vm.selected.name}}" aria-required="true"></rating>
+      <b>({{vm.selected.reviews.rate}})</b>
+    </div>
+    <button class="btn btn-cyan btn-ef"
+            ng-click="vm.publishReview(vm.selected)"
+            ng-disabled="!vm.selected.reviews.rate"
+            tabindex="0"> Publish
+    </button>
+  </div>
+
+</div>

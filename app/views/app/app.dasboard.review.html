@@ -1,0 +1,20 @@
+<div ng-show="vm.selected.review" class="card-back-div">
+
+  <div class="tile-body review-content" style="max-height: 315px;overflow:auto;" slimscroll="{height: '100%'}">
+    <ul class="chats p-0" tabindex="0">
+      <li ng-class="{'in': $index % 2 == 0 , 'out': $index % 2 != 0}" ng-repeat="review in vm.listReviews" ng-show="review.restaurant_id == vm.selected.id" ng-attr-id="{{ 'review-' + vm.selected.id }}" tabindex="0" aria-label="at {{review.date}}, {{review.userName}} said {{review.review}}">
+
+        <div class="media">
+          <div ng-class="{'pull-left': $index % 2 == 0 , 'pull-right': $index % 2 != 0}" class="thumb thumb-sm">
+            <img class="media-object img-circle" ng-src="{{review.userPhoto}}" alt="User Photo">
+          </div>
+          <div class="media-body">
+            <p class="media-heading"><a href="javascript:;" class="name user-name" tabindex="-1">{{ review.userName }}</a><strong> at {{ review.date }}</strong></p>
+            <span class="body">{{ review.review }}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>

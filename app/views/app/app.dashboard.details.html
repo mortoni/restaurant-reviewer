@@ -1,0 +1,40 @@
+<div ng-show="vm.selected.detail" class="card-back-div">
+  <div class="tile-widget">
+    <div class="row">
+      <div class="col-xs-12 detail-first" aria-label="{{vm.selected.name}} Details chef {{vm.selected.chef}}" tabindex="0">
+        <div class="media mb-20">
+          <div class="pull-left thumb">
+            <img class="media-object img-circle"
+                 ng-src="../images/{{vm.selected.image}}"
+                 alt="{{vm.selected.alt}}"
+                 title="{{vm.selected.alt}}"/>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading mb-0">{{ vm.selected.name }} </h4>
+            <small>Chef: <strong class="chef-label">{{ vm.selected.chef }}</strong></small>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12">
+        <dl class="dl-horizontal text-sm">
+          <dt>Rating: </dt>
+          <dd class="text-lightred start-color" tabindex="0" aria-label="Rate {{vm.selected.rate | limitTo : 3}}">
+            <i class="fa fa-star" ng-repeat="stars in vm.selected.stars"></i>
+            <i class="fa fa-star-half-o" ng-repeat="halfStar in vm.selected.halfStar"></i>
+            ({{vm.selected.rate | limitTo : 3}})
+          </dd>
+          <dt>Cuisine: </dt>
+          <dd tabindex="0" aria-label="cuisine {{vm.selected.cuisine}}">{{ vm.selected.cuisine }}</dd>
+          <dt>Operating Hours: </dt>
+          <div tabindex="0" aria-label="operating hours Weekday {{vm.selected.weekday}}, Weekend {{vm.selected.weekend}}">
+            <table ng-table="tableParams" class="table table-custom">
+              <tr><td><span>Weekday: {{ vm.selected.weekday }}</span></td></tr>
+              <tr><td><span>Weekend: {{ vm.selected.weekend }}</span></td></tr>
+            </table>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="row text-center pull-down col-xs-12 footer">
+  <hr class="personalized">
+  <div class="col-xs-4">
+    <a id="first"
+       href="javascript:;"
+       class="no-collor"
+       ng-class="{'selected-item': vm.selected.detail}"
+       ng-click="vm.details(vm.selected)"
+       tabindex="0"
+       style="text-decoration: none;"
+       aria-label="Details"
+       role="listitem">
+      <i class="fa fa-asterisk fa-2x" aria-hidden="true"></i> Details
+    </a>
+  </div>
+  <div class="col-xs-4">
+    <a href="javascript:;"
+       class="no-collor"
+       ng-class="{'selected-item': vm.selected.review}"
+       ng-click="vm.reviews(vm.selected)"
+       tabindex="0"
+       style="text-decoration: none;"
+       aria-label="Reviews"
+       role="listitem">
+      <i class="fa fa-bars fa-2x" aria-hidden="true"></i> Reviews
+    </a>
+  </div>
+  <div class="col-xs-4">
+    <a id="last"
+       href="javascript:;"
+       class="no-collor"
+       ng-class="{'selected-item': vm.selected.writeReview}"
+       ng-click="vm.writeReview(vm.selected)"
+       tabindex="0"
+       style="text-decoration: none;"
+       aria-label="Write a review"
+       role="listitem">
+      <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i> Write review
+    </a>
+  </div>
+</div>

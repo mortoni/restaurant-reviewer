@@ -1,0 +1,54 @@
+<div ng-show="vm.selected.pictures">
+  <div class="rating-stars text-center">
+    <i ng-mouseenter="enter($index + 1)"
+       ng-click="rate($index + 1)"
+       class="glyphicon ng-scope fa fa-star text-orange text-lg"
+       ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+       ng-attr-title="{{r.title}}"
+       role="button"
+       tabindex="-1"
+       title="one">
+    </i>
+    <i ng-mouseenter="enter($index + 1)"
+       ng-click="rate($index + 1)"
+       class="glyphicon ng-scope fa fa-star text-orange text-lg"
+       ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+       ng-attr-title="{{r.title}}"
+       role="button"
+       tabindex="-1"
+       title="one">
+    </i>
+    <i ng-mouseenter="enter($index + 1)"
+       ng-click="rate($index + 1)"
+       class="glyphicon ng-scope fa fa-star text-orange text-lg"
+       ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+       ng-attr-title="{{r.title}}"
+       role="button"
+       tabindex="-1"
+       title="one">
+    </i>
+    <i ng-mouseenter="enter($index + 1)"
+       ng-click="rate($index + 1)"
+       class="glyphicon ng-scope fa fa-star text-orange text-lg"
+       ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+       ng-attr-title="{{r.title}}"
+       role="button"
+       tabindex="-1"
+       title="one">
+    </i>
+    <i ng-mouseenter="enter($index + 1)"
+       ng-click="rate($index + 1)"
+       class="glyphicon ng-scope fa fa-star text-orange text-lg"
+       ng-class="$index < value &amp;&amp; (r.stateOn || 'glyphicon-star') || (r.stateOff || 'glyphicon-star-empty')"
+       ng-attr-title="{{r.title}}"
+       role="button"
+       tabindex="-1"
+       title="one">
+    </i>
+  </div>
+
+  <img class="img-responsive text-center"
+       ng-src="../images/{{vm.selected.background}}"
+       alt="{{vm.selected.alt}}"
+       title="{{vm.selected.alt}}"/>
+</div>
