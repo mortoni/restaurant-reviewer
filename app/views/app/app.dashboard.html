@@ -28,7 +28,7 @@
            ng-keypress="vm.select(restaurant, $event)"
            ng-click="vm.select(restaurant)"
            role="listitem">
-        <div class="content" ng-class="{'selected-card': restaurant.isSelected}">
+        <div class="content test" ng-class="{'selected-card': restaurant.id == vm.selected.id}">
           <img class="img-responsive center"
                ng-src="../images/{{restaurant.image}}"
                alt="{{restaurant.alt}}"

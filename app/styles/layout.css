@@ -199,6 +199,11 @@
   background-color: #495c66 !important;
 }
 
+.card .content:hover{
+  background-color: #495c66 !important;
+  cursor: pointer;
+}
+
 
 
 
