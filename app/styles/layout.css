@@ -78,6 +78,7 @@
   text-align: center;
   right: 0;
   left: 0;
+  margin: 0px 15px 0px 0px;
 }
 
 .card-footer ul li.lead{
@@ -121,18 +122,27 @@
   background-color: rgba(0, 0, 0, 0.00) !important;
   color: white;
 }
+.no-collor:focus,
+.no-collor:hover,
+.selected-item{
+  color: #6ce4cf;
+}
 
 .card-back-div, .review-content{
   padding: 5px;
+  color: white;
 }
 
 .chef-label, .start-color {
-  color: #FFFF00
+  /*color: #FFFF00*/
+  color: #6de8d2;
 }
 
 .pull-down {
   position: absolute;
   bottom: 0;
+  margin-bottom: 25px;
+  padding-right: 40px;
 }
 
 .user-header{
@@ -148,11 +158,11 @@
 }
 
 .text-orange {
-    color: #6ce4cf !important;
+  color: #6ce4cf !important;
 }
 
 .user-name{
-  color: white !important;
+  color: #6de8d2 !important;
 }
 
 .bg-red.lter {
@@ -161,15 +171,53 @@
 
 .card {
   margin: 0px 0px 10px 0px;
+  padding-left: 0px;
+  height: 300px;
 }
 
-.card .content{
-  margin: 10px 15px 0px 0px;
+.card .content {
+  background-color: #707070;
+  height: 100%;
+  padding: 10px;
 }
+
+.card-detail{
+  height: 400px;
+  background-color: #495c66;
+  margin-right: 15px;
+  margin-left: -15px;
+  position: fixed;
+  right: 0;
+  top: 203px;
+}
+
+.card-detail .content{
+  height: 100%;
+}
+
+.selected-card{
+  background-color: #495c66 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .card .content .body{}
 .card .content .footer{}
 
+.card .content .footer div a:focus,
 .card .content .footer div a:hover{
   color: white !important;
 }
@@ -181,5 +229,12 @@
 
 .card .front {
   background-color: #707070;
-  color: yellow;
+}
+
+.no-visible{
+  visibility: hidden;
+}
+
+.visible{
+  visibility: visible;
 }

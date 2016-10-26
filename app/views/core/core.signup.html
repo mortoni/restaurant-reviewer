@@ -23,7 +23,9 @@
                placeholder="Name"
                ng-model="vm.newUser.name"
                tabindex="0"
-               required>
+               aria-required="true"
+               required
+               autofocus>
       </div>
 
       <div class="form-group">
@@ -34,6 +36,7 @@
                ng-model="vm.newUser.email"
                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                tabindex="0"
+               aria-required="true"
                required>
       </div>
 
@@ -45,6 +48,7 @@
                ng-model="vm.newUser.password"
                ng-minlength="4"
                tabindex="0"
+               aria-required="true"
                required>
       </div>
 

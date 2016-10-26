@@ -9,15 +9,12 @@
       var vm = this;
 
       $rootScope.dashboard = true;
-
       vm.user = Auth.getUser();
+      vm.select = select;
       vm.details = details;
       vm.reviews = reviews;
       vm.writeReview = writeReview;
       vm.publishReview = publishReview;
-      vm.calcRate = calcRate;
-      vm.turnCard = turnCard;
-      vm.testinho = false;
 
       activate();
 
@@ -31,15 +28,56 @@
 
         firebase.database().ref('reviews').on('value', function(snapshot) {
           vm.listReviews = snapshot.val();
-          var teste = vm.listReviews[vm.listReviews.length -1];
         });
+      }
 
+      function select(restaurant, event){
+        if(event == null || event.keyCode === 13){
+          vm.selected = restaurant;
+          vm.selected.pictures = true;
+          vm.selected.detail = false;
+          vm.selected.review = false;
+          vm.selected.writeReview = false;
+          angular.element('#first').focus();
+        }
+      }
 
-        for (var i = 0; i < vm.restaurants.length; i++) {
-          vm.restaurants[i].isBackground = true;
-          vm.restaurants[i].isDetails = false;
-          vm.restaurants[i].isReview = false;
-          vm.restaurants[i].isWriteReview = false;
+      function details(restaurant){
+        active('detail', restaurant);
+        $('.detail-first').focus();
+      }
+
+      function reviews(restaurant) {
+        active('review', restaurant);
+        $('.chats').focus();
+      }
+
+      function writeReview(restaurant) {
+        active('write', restaurant);
+        $('.write-first').focus();
+      }
+
+      function active(who, restaurant){
+        switch (who) {
+          case 'detail':
+            restaurant.pictures = false;
+            restaurant.detail = true;
+            restaurant.review = false;
+            restaurant.writeReview = false;
+            calcStars(restaurant);
+            break;
+          case 'review':
+            restaurant.pictures = false;
+            restaurant.detail = false;
+            restaurant.review = true;
+            restaurant.writeReview = false;
+            break;
+          case 'write':
+            restaurant.pictures = false;
+            restaurant.detail = false;
+            restaurant.review = false;
+            restaurant.writeReview = true;
+            break;
         }
       }
 
@@ -52,40 +90,6 @@
 
         if(restaurant.rate % 1 != 0)
           restaurant.halfStar.push(1);
-      }
-
-      function halfStart(){
-
-      }
-
-      function calcRate(){
-
-      }
-
-      function getDate(){
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth()+1; //January is 0!
-
-        var yyyy = today.getFullYear();
-        if(dd<10){
-            dd='0'+dd;
-        }
-        if(mm<10){
-            mm='0'+mm;
-        }
-        today = dd+'/'+mm+'/'+yyyy;
-        return today;
-      }
-
-      function showToast(){
-        $mdToast.show({
-          parent: angular.element(document.querySelector('#toastContainer')),
-          controller: 'ToastShowCtrl',
-          templateUrl: '../views/toast-template.html',
-          hideDelay: 6000,
-          position: "top right"
-        });
       }
 
       function publishReview(restaurant){
@@ -113,75 +117,30 @@
         restaurant.reviews.message = '';
         restaurant.reviews.rate = 0;
 
-        restaurant.isBackground = true;
-        restaurant.isDetails = false;
-        restaurant.isReview = false;
-        restaurant.isWriteReview = false;
+        restaurant.pictures = true;
+        restaurant.detail = false;
+        restaurant.review = false;
+        restaurant.writeReview = false;
 
         // showToast(); TODO
       }
 
-      function details(restaurant){
-        active('detail', restaurant);
-      }
+      function getDate(){
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
 
-      function reviews(restaurant) {
-        active('review', restaurant);
-      }
-
-      function writeReview(restaurant) {
-        active('write', restaurant);
-      }
-
-      function active(who, restaurant){
-        switch (who) {
-          case 'detail':
-            restaurant.isBackground = false;
-            restaurant.isDetails = true;
-            restaurant.isReview = false;
-            restaurant.isWriteReview = false;
-            calcStars(restaurant);
-            break;
-          case 'review':
-            restaurant.isBackground = false;
-            restaurant.isDetails = false;
-            restaurant.isReview = true;
-            restaurant.isWriteReview = false;
-            break;
-          case 'write':
-            restaurant.isBackground = false;
-            restaurant.isDetails = false;
-            restaurant.isReview = false;
-            restaurant.isWriteReview = true;
-            break;
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd;
         }
-
-
-        // $timeout(function () {
-        //   if(!restaurant.isWriteReview || !restaurant.isReview){
-        //     restaurant.isBackground = true;
-        //     restaurant.isDetails = false;
-        //     restaurant.isReview = false;
-        //     restaurant.isWriteReview = false;
-        //   }
-        // }, 10000);
-      }
-
-      function turnCard(event) {
-        if (event.keyCode === 13) {
-          console.log('Enter key pressed');
-          $(event.target).addClass('test');
+        if(mm<10){
+            mm='0'+mm;
         }
+        today = dd+'/'+mm+'/'+yyyy;
+        return today;
       }
 
-      // $('.card-container .card .back > .row > div a')
-      // .focus(function() {
-      //     $('.card').addClass('testinho');
-      // })
-      // .blur(function() {
-      //     $('.card').removeClass('testinho');
-      // });
 
     }
-
 })();

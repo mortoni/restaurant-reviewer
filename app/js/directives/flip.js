@@ -41,11 +41,14 @@ angular.module('app').directive("flip", function(){
       self.showBack = showBack;
       self.showFront = showFront;
       self.isBack = isBack;
+      self.activateTab = activateTab;
+      self.desactivateTab = desactivateTab;
 
 
       function showFront(){
         self.front.removeClass("flipHideFront");
         self.back.addClass("flipHideBack");
+        desactivateTab();
       }
 
       function isBack(){
@@ -57,7 +60,19 @@ angular.module('app').directive("flip", function(){
       function showBack(){
         self.back.removeClass("flipHideBack");
         self.front.addClass("flipHideFront");
+        activateTab();
       }
+
+      function activateTab(){
+        angular.element('.item').addClass("visible");
+        angular.element('.item').removeClass("no-visible");
+      }
+
+      function desactivateTab(){
+        angular.element('.item').addClass("no-visible");
+        angular.element('.item').removeClass("visible");
+      }
+
 
       self.init = function(){
         self.front.addClass("flipBasic");
@@ -78,19 +93,27 @@ angular.module('app').directive("flip", function(){
 
       element.addClass("flip");
 
+      var items = angular.element('.item');
+
+      for (var i = 0; i < items.length; i++) {
+        items[i].onclick = function(){
+          ctrl.showBack();
+          event.preventDefault();
+        }
+      }
+
       element.bind("keypress", function(event) {
         if(event.keyCode === 13) {
-          if(ctrl.isBack())
+          if(ctrl.isBack()){
             ctrl.showFront();
-          else
+            ctrl.desactivateTab();
+          }else{
             ctrl.showBack();
+            ctrl.activateTab();
+          }
           event.preventDefault();
         }
       });
-
-      // element.bind("blur", function(event) {
-      //   ctrl.showFront();
-      // });
 
       if(ctrl.front && ctrl.back){
         [element, ctrl.front, ctrl.back].forEach(function(el){
@@ -120,4 +143,17 @@ angular.module('app').directive("flipPanel", function(){
       }
     }
   }
+});
+
+angular.module('app').directive('a', function() {
+    return {
+        restrict: 'E',
+        link: function(scope, elem, attrs) {
+            if(attrs.ngClick || attrs.href === '' || attrs.href === '#'){
+                elem.on('click', function(e){
+                    e.preventDefault();
+                });
+            }
+        }
+   };
 });
