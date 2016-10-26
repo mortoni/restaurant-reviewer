@@ -140,7 +140,5 @@
         today = dd+'/'+mm+'/'+yyyy;
         return today;
       }
-
-
     }
 })();

@@ -140,7 +140,6 @@
 
 .pull-down {
   position: absolute;
-  bottom: 0;
   margin-bottom: 25px;
   padding-right: 40px;
 }
@@ -186,9 +185,7 @@
   background-color: #495c66;
   margin-right: 15px;
   margin-left: -15px;
-  position: fixed;
   right: 0;
-  top: 203px;
 }
 
 .card-detail .content{
@@ -199,9 +196,22 @@
   background-color: #495c66 !important;
 }
 
-.card .content:hover{
+.card:hover .content{
   background-color: #495c66 !important;
   cursor: pointer;
+}
+
+.card:hover .card-footer, .selected-footer{
+  color: #6de8d2;
+}
+
+.card:hover .card-footer ul li.lead {
+  border-bottom: 2px solid #495c66;
+}
+
+.fix-to-top {
+    position: fixed;
+    top: 52px;
 }
 
 

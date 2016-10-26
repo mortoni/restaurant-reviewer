@@ -28,13 +28,13 @@
            ng-keypress="vm.select(restaurant, $event)"
            ng-click="vm.select(restaurant)"
            role="listitem">
-        <div class="content test" ng-class="{'selected-card': restaurant.id == vm.selected.id}">
+        <div class="content" ng-class="{'selected-card': restaurant.id == vm.selected.id}">
           <img class="img-responsive center"
                ng-src="../images/{{restaurant.image}}"
                alt="{{restaurant.alt}}"
                title="{{restaurant.alt}}"/>
         </div>
-        <div class="card-footer">
+        <div class="card-footer" ng-class="{'selected-footer': restaurant.id == vm.selected.id}">
           <ul>
             <li class="lead">{{ restaurant.name }}</li>
             <li class="strap">{{ restaurant.country }}</li>
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <div class="col-xs-12 col-lg-4 card-detail">
+    <div class="col-xs-12 col-lg-4 card-detail hidden-xs hidden-sm" set-class-when-at-top="fix-to-top">
       <div class="content" ng-show="vm.selected">
         <!-- pictures -->
         <div ng-show="vm.selected.pictures">
@@ -242,5 +242,4 @@
         <!-- /footer -->
       </div>
     </div>
-
   </div>
