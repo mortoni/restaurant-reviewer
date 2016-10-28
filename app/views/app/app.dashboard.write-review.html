@@ -1,8 +1,8 @@
-<div ng-show="vm.selected.writeReview" class="card-back-div">
+<div ng-show="vm.selected.writeReview" class="card-back-div write-review">
 
-  <label >How was your experience at <strong class="chef-label">{{vm.selected.name}}</strong></label>
+  <label >How was your experience <strong class="hidden-xs hidden-sm chef-label">at {{vm.selected.name}}</strong>?</label>
   <textarea class="form-control write-first"
-            rows="5"
+            rows="3"
             ng-model="vm.selected.reviews.message"
             maxlength="100"
             aria-label="How was your experience at {{vm.selected.name}}"

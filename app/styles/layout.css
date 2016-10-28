@@ -141,7 +141,8 @@
 .pull-down {
   position: absolute;
   margin-bottom: 25px;
-  padding-right: 40px;
+  bottom: 0px;
+  width: 100%;
 }
 
 .user-header{
@@ -239,6 +240,11 @@
   visibility: visible;
 }
 
+.reviews-comments{
+  max-height: 315px;
+  overflow:auto;
+}
+
 @media only screen and (max-device-width: 480px) {
   .card {
     margin: 0px 0px 10px 0px;
@@ -248,13 +254,14 @@
     margin-left: -20px;
   }
 
-  .card:first-child{
+  #card-content{
     margin-top: 40px;
   }
 
   .card .content img{
     height: 100px;
     margin-top: -55px;
+    border: 3px solid;
   }
 
   .card-footer{
@@ -268,10 +275,77 @@
   .card-footer ul li.lead {
     border-bottom: 0px solid #FFF;
   }
+  .card:focus .content img{
+    border-color: #6de8d2 !important;
+    border: 3px solid;
+  }
+
+  .stars-mobile{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 75px;
+    position: relative;
+  }
+
+  .img-mobile{
+    margin-top: 60px;
+  }
+
+  .restaurant-label{
+    margin-top: 50px;
+    position: absolute;
+    font-size: 20px;
+    color: white;
+  }
+  .details,
+  .write-review{
+    margin-top: 105px;
+  }
+
+  .reviews{
+    margin-top: 80px;
+  }
+
+  .reviews-comments{
+    max-height: 255px;
+    overflow:auto;
+  }
 }
 
 #card-footer{
   position: absolute;
   bottom: 82px;
   width: 100%;
+}
+
+.mobile-card-content{
+  width: 90%;
+  height: 90%;
+  position: fixed;
+  background: #495c66;
+  top: 60px;
+  padding: 10px;
+}
+
+.mobile-card-content .quit{
+  color: #6de8d2;
+  font-size: 21px;
+  padding: 0px 25px;
+}
+
+.mobile-card-content .header{
+  border-top: 2px solid #6de8d2;
+  margin-top: 60px;
+  height: 0;
+}
+
+.mobile-img{
+  width: 100px;
+  top: -50px;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid #6de8d2;
 }

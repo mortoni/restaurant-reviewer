@@ -64,7 +64,7 @@ gulp.task('minify-css', function() {
                    'app/styles/main.css',
                    'app/styles/layout.css',
                    'app/styles/spin-loader.css'])
-    .pipe(concatCss('styles-1.0.4.min.css'))
+    .pipe(concatCss('styles-1.0.7.min.css'))
     .pipe(cleanCSS({ keepSpecialComments: 1, processImport: false }))
     .pipe(gulp.dest('dist/css'));
 
@@ -87,16 +87,7 @@ gulp.task('compress', function() {
                   'app/js/controllers/*.js',
                   'app/js/directives/*.js',
                   'app/js/services/*.js'])
-    // .pipe(concat('scripts-1.0.4.min.js'))
-    // .pipe(ngmin())
-    // .pipe(gulp.dest('dist/js'));
-
-
-
-
-
-
-    .pipe(concat('scripts-1.0.4.js'))
+    .pipe(concat('scripts-1.0.7.js'))
     .pipe(ngmin())
     .pipe(gulp.dest('dist/js'))
     .pipe(rename({suffix: '.min'}))

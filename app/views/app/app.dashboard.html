@@ -1,6 +1,6 @@
 <div class="page page-dashboard" ng-show="vm.user">
   <br>
-  <div class="col-xs-12">
+  <div class="col-xs-12" ng-hide="vm.mobile">
     <div id="sub-header" role="heading">
       <p>I won't be Impressed with tecnology until I can donwload <strong class="food-collor">FOOD.</strong></p>
     </div>
@@ -8,64 +8,58 @@
 
   <div class="row">
     <!-- search -->
-    <div class="col-xs-12">
-      <div layout layout-sm="column"
-           class="col-xs-offset-1 col-md-offset-4 col-xs-10 col-md-5 text-center"
-           role="search">
-        <md-input-container flex>
-          <label class="pla-ho-collor">What are you looking for?</label>
-          <input ng-model="vm.search" tabindex="0">
-        </md-input-container>
-      </div>
+    <div class="col-xs-12" ng-hide="vm.mobile">
+      <section ng-include="'views/app/app.dashboard.search.html'" id="card-search"></section>
     </div>
     <!-- /search -->
-
-    <!-- card -->
-    <div id="card-content" class="col-xs-12 col-lg-8">
-      <div class="card col-xs-12 col-lg-4"
-           ng-repeat="restaurant in vm.restaurants | filter:vm.search"
-           tabindex="0"
-           aria-label="Restaurant {{ restaurant.name }} from {{ restaurant.country }}"
-           ng-focus="restaurant.isSelected = true"
-           ng-blur="restaurant.isSelected = false"
-           ng-keypress="vm.select(restaurant, $event)"
-           ng-click="vm.select(restaurant)"
-           role="listitem">
-        <div class="content" ng-class="{'selected-card': restaurant.id == vm.selected.id}">
-          <img class="img-responsive center hidden-xs hidden-sm"
-               ng-src="../images/{{restaurant.image}}"
-               alt="{{restaurant.alt}}"
-               title="{{restaurant.alt}}"/>
-
-         <img class="media-object img-circle visible-sm visible-xs"
-              ng-src="../images/{{restaurant.image}}"
-              alt="{{restaurant.alt}}"
-              title="{{restaurant.alt}}"/>
-        </div>
-        <div class="card-footer" ng-class="{'selected-footer': restaurant.id == vm.selected.id}">
-          <ul>
-            <li class="lead">{{ restaurant.name }}</li>
-            <li class="strap">{{ restaurant.country }}</li>
-          </ul>
-        </div>
-      </div>
+    <!-- cards -->
+    <div id="card-content" class="col-xs-12 col-lg-8" ng-hide="vm.mobile">
+      <section ng-include="'views/app/app.dashboard.card.html'"></section>
     </div>
-    <!-- /card -->
+    <!-- /cards -->
+
 
     <!-- card details -->
     <div class="hidden-xs hidden-sm col-xs-12 col-lg-4 card-detail" set-class-when-at-top="fix-to-top">
-      <div class="content" ng-show="vm.selected">
-        <section ng-include="'views/app/app.dashboard.picture.html'" id="pictures"></section>
+      <div class="content" ng-show="vm.selected" ng-if="!vm.mobile">
+        <section ng-include="'views/app/app.dashboard.picture.html'"></section>
 
-        <section ng-include="'views/app/app.dashboard.details.html'" id="details"></section>
+        <section ng-include="'views/app/app.dashboard.details.html'"></section>
 
-        <section ng-include="'views/app/app.dasboard.review.html'" id="review"></section>
+        <section ng-include="'views/app/app.dasboard.review.html'"></section>
 
-        <section ng-include="'views/app/app.dashboard.write-review.html'" id="write-review"></section>
+        <section ng-include="'views/app/app.dashboard.write-review.html'"></section>
 
-        <section ng-include="'views/app/app.dashboard.footer.html'" id="card-footer"></section>
+        <section ng-include="'views/app/app.dashboard.footer.html'" class="pull-down"></section>
 
       </div>
     </div>
     <!-- /card details -->
+
+    <!-- mobile content -->
+    <div id="mobile-body" class="col-xs-12 visible-sm visible-xs" ng-if="vm.mobile">
+      <div class="mobile-card-content">
+        <span class="pull-right quit row" ng-click="vm.mobile=false">X</span>
+        <div class="header">
+          <img class="media-object img-circle mobile-img"
+               ng-src="../images/{{vm.selected.image}}"
+               alt="{{vm.selected.alt}}"
+               title="{{vm.selected.alt}}"/>
+        </div>
+
+        <span class="text-center col-xs-12 restaurant-label">{{vm.selected.name}}</span>
+
+        <section ng-include="'views/app/app.dashboard.picture.html'"></section>
+
+        <section ng-include="'views/app/app.dashboard.details.html'"></section>
+
+        <section ng-include="'views/app/app.dasboard.review.html'"></section>
+
+        <section ng-include="'views/app/app.dashboard.write-review.html'"></section>
+
+        <section ng-include="'views/app/app.dashboard.footer.html'" class="pull-down"></section>
+
+      </div>
+    </div>
+    <!-- /mobile content -->
   </div>

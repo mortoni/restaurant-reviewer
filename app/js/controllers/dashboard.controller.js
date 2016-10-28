@@ -9,12 +9,15 @@
       var vm = this;
 
       $rootScope.dashboard = true;
+      vm.mobile = false;
       vm.user = Auth.getUser();
       vm.select = select;
       vm.details = details;
       vm.reviews = reviews;
       vm.writeReview = writeReview;
       vm.publishReview = publishReview;
+      vm.mobile_select = mobile_select;
+      vm.quit = quit;
 
       activate();
 
@@ -32,14 +35,16 @@
       }
 
       function select(restaurant, event){
-        if(event == null || event.keyCode === 13){
+
+        if(event === null || event.keyCode === 13){
           vm.selected = restaurant;
           vm.selected.pictures = true;
           vm.selected.detail = false;
           vm.selected.review = false;
           vm.selected.writeReview = false;
-          angular.element('#first').focus();
+          angular.element('#firstItem').focus();
         }
+        vm.mobile = false;
       }
 
       function details(restaurant){
@@ -85,10 +90,10 @@
         restaurant.stars = [];
         restaurant.halfStar = [];
         for (var i = 0; i < Math.floor(restaurant.rate); i++) {
-          restaurant.stars.push(i)
+          restaurant.stars.push(i);
         }
 
-        if(restaurant.rate % 1 != 0)
+        if(restaurant.rate % 1 !== 0)
           restaurant.halfStar.push(1);
       }
 
@@ -139,6 +144,24 @@
         }
         today = dd+'/'+mm+'/'+yyyy;
         return today;
+      }
+
+      function mobile_select(restaurant){
+
+        $timeout(function() {
+          vm.mobile = true;
+        }, 800);
+
+        vm.selected = restaurant;
+        vm.selected.pictures = true;
+        vm.selected.detail = false;
+        vm.selected.review = false;
+        vm.selected.writeReview = false;
+        angular.element('#firstItemMobile').focus();
+      }
+
+      function quit(){
+
       }
     }
 })();

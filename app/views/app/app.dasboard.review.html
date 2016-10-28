@@ -1,8 +1,8 @@
-<div ng-show="vm.selected.review" class="card-back-div">
+<div ng-show="vm.selected.review" class="card-back-div reviews">
 
-  <div class="tile-body review-content" style="max-height: 315px;overflow:auto;" slimscroll="{height: '100%'}">
+  <div class="tile-body review-content reviews-comments" slimscroll="{height: '100%'}">
     <ul class="chats p-0" tabindex="0">
-      <li ng-class="{'in': $index % 2 == 0 , 'out': $index % 2 != 0}" ng-repeat="review in vm.listReviews" ng-show="review.restaurant_id == vm.selected.id" ng-attr-id="{{ 'review-' + vm.selected.id }}" tabindex="0" aria-label="at {{review.date}}, {{review.userName}} said {{review.review}}">
+      <li ng-class="{'in': $index % 2 == 0 , 'out': $index % 2 != 0}" ng-repeat="review in vm.listReviews" ng-show="review.restaurant_id == vm.selected.id" tabindex="0" aria-label="at {{review.date}}, {{review.userName}} said {{review.review}}">
 
         <div class="media">
           <div ng-class="{'pull-left': $index % 2 == 0 , 'pull-right': $index % 2 != 0}" class="thumb thumb-sm">

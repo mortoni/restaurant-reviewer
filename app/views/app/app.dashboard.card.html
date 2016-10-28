@@ -1,0 +1,43 @@
+<div class="card col-xs-12 col-lg-4 hidden-xs hidden-sm"
+     ng-repeat="restaurant in vm.restaurants | filter:vm.search"
+     tabindex="0"
+     aria-label="Restaurant {{ restaurant.name }} from {{ restaurant.country }}"
+     ng-focus="restaurant.isSelected = true"
+     ng-blur="restaurant.isSelected = false"
+     ng-keypress="vm.select(restaurant, $event)"
+     ng-click="vm.select(restaurant)">
+  <div class="content" ng-class="{'selected-card': restaurant.id == vm.selected.id}">
+    <img class="img-responsive center "
+         ng-src="../images/{{restaurant.image}}"
+         alt="{{restaurant.alt}}"
+         title="{{restaurant.alt}}"/>
+  </div>
+  <div class="card-footer" ng-class="{'selected-footer': restaurant.id == vm.selected.id}">
+    <ul>
+      <li class="lead">{{ restaurant.name }}</li>
+      <li class="strap">{{ restaurant.country }}</li>
+    </ul>
+  </div>
+</div>
+<!-- mobile -->
+<div class="card col-xs-12 col-lg-4 visible-sm visible-xs"
+     ng-repeat="restaurant in vm.restaurants | filter:vm.search"
+     tabindex="0"
+     aria-label="Restaurant {{ restaurant.name }} from {{ restaurant.country }}"
+     ng-focus="restaurant.isSelected = true"
+     ng-blur="restaurant.isSelected = false"
+     ng-keypress="vm.select(restaurant, $event)"
+     ng-click="vm.mobile_select(restaurant)">
+  <div class="content" ng-class="{'selected-card': restaurant.id == vm.selected.id}">
+   <img class="media-object img-circle"
+        ng-src="../images/{{restaurant.image}}"
+        alt="{{restaurant.alt}}"
+        title="{{restaurant.alt}}"/>
+  </div>
+  <div class="card-footer" ng-class="{'selected-footer': restaurant.id == vm.selected.id}">
+    <ul>
+      <li class="lead">{{ restaurant.name }}</li>
+      <li class="strap">{{ restaurant.country }}</li>
+    </ul>
+  </div>
+</div>
