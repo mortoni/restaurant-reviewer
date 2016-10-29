@@ -1,10 +1,10 @@
-<div class="page page-dashboard" ng-show="vm.user">
+<main class="page page-dashboard" ng-show="vm.user">
   <br>
-  <div class="col-xs-12" ng-hide="vm.mobile">
+  <section class="col-xs-12" ng-hide="vm.mobile">
     <div id="sub-header" role="heading">
       <p>I won't be Impressed with tecnology until I can donwload <strong class="food-collor">FOOD.</strong></p>
     </div>
-  </div>
+  </section>
 
   <div class="row">
     <!-- search -->
@@ -13,14 +13,14 @@
     </div>
     <!-- /search -->
     <!-- cards -->
-    <div id="card-content" class="col-xs-12 col-lg-8" ng-hide="vm.mobile">
+    <article id="card-content" class="col-xs-12 col-lg-8" ng-hide="vm.mobile">
       <section ng-include="'views/app/app.dashboard.card.html'"></section>
-    </div>
+    </article>
     <!-- /cards -->
 
 
     <!-- card details -->
-    <div class="hidden-xs hidden-sm col-xs-12 col-lg-4 card-detail" set-class-when-at-top="fix-to-top">
+    <article class="hidden-xs hidden-sm col-xs-12 col-lg-4 card-detail" set-class-when-at-top="fix-to-top">
       <div class="content" ng-show="vm.selected" ng-if="!vm.mobile">
         <section ng-include="'views/app/app.dashboard.picture.html'"></section>
 
@@ -33,11 +33,11 @@
         <section ng-include="'views/app/app.dashboard.footer.html'" class="pull-down"></section>
 
       </div>
-    </div>
+    </article>
     <!-- /card details -->
 
     <!-- mobile content -->
-    <div id="mobile-body" class="col-xs-12 visible-sm visible-xs" ng-if="vm.mobile">
+    <article id="mobile-body" class="col-xs-12 visible-sm visible-xs" ng-if="vm.mobile">
       <div class="mobile-card-content">
         <span class="pull-right quit row" ng-click="vm.mobile=false">X</span>
         <div class="header">
@@ -60,6 +60,8 @@
         <section ng-include="'views/app/app.dashboard.footer.html'" class="pull-down"></section>
 
       </div>
-    </div>
+    </article>
     <!-- /mobile content -->
   </div>
+
+</main>

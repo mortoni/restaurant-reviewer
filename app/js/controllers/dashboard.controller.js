@@ -36,7 +36,7 @@
 
       function select(restaurant, event){
 
-        if(event === null || event.keyCode === 13){
+        if(typeof event === 'undefined' || event.keyCode === 13){
           vm.selected = restaurant;
           vm.selected.pictures = true;
           vm.selected.detail = false;
