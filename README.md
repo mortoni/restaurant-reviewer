@@ -9,6 +9,13 @@ Restaurant Review App, Project 3 from Udacity Senior Web Developer Nanodegree. I
 ## [Demo](https://udacitythree.firebaseapp.com/#/core/login)  
 You can see a demo [here](https://udacitythree.firebaseapp.com/#/core/login).  
 
+to test you need to install chrome vox extension or any other screen reader, you can use those credentials:
+
+email: oi@oi.com
+pwd: 123456
+
+As you navigate using tab keyboard screen reader will read each element on screen.
+
 ### Mobile  
 <img src="https://raw.githubusercontent.com/mortoni/restaurant-reviewer/master/app/images/udacity3-3.png" width="250" height="500" /> <img src="https://raw.githubusercontent.com/mortoni/restaurant-reviewer/master/app/images/udacity3-1.png" width="250" height="500" /> <img src="https://raw.githubusercontent.com/mortoni/restaurant-reviewer/master/app/images/udacity3-2.png" width="250" height="500" />
 
@@ -58,6 +65,6 @@ $ gulp build
 $ gulp test
 ```
 
-##Features  
+## Features  
 **Version 1.0.0**  
 - First commit
