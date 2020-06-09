@@ -6,7 +6,7 @@ Restaurant Review App, Project 3 from Udacity Senior Web Developer Nanodegree. I
 
 > Udacity
 
-##[Demo](https://udacitythree.firebaseapp.com/#/core/login)  
+## [Demo](https://udacitythree.firebaseapp.com/#/core/login)  
 You can see a demo [here](https://udacitythree.firebaseapp.com/#/core/login).  
 
 ### Mobile  
@@ -15,7 +15,7 @@ You can see a demo [here](https://udacitythree.firebaseapp.com/#/core/login).
 ### Desktop  
 ![image](https://raw.githubusercontent.com/mortoni/restaurant-reviewer/master/app/images/udacity-desktop.png)  
 
-##Technologies
+## Technologies
 [AngularJS](https://angularjs.org/)  
 [Firebase](https://www.firebase.com/)  
 JavaScript  
