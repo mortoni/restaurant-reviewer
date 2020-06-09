@@ -25,13 +25,14 @@ Gulp
 BootStrap 3  
 JQuery  
 
-##Dependencies
+## Dependencies
 - **Node.js**  
 You must download and install it [here](https://nodejs.org/en/).  
 
-##Running
+## Running
 Go to root folder of project, open your terminal and then follow steps:  
-###Development Server  
+
+### Development Server  
 - Installing dependencies:
 ```{r, engine='bash', count_lines}
 $ npm install
@@ -46,7 +47,7 @@ $ bower install
 ```{r, engine='bash', count_lines}
 $ gulp serve
 ```
-###Distribution Server  
+### Distribution Server  
 - Generate distribution:  
 ```{r, engine='bash', count_lines}
 $ gulp build
